@@ -1,0 +1,252 @@
+
+/* Variables de los colores de la web.*/
+:root {
+    --color-primary-yellow: hsl(48, 100%, 50%);    
+    --color-primary-blue: hsla(210, 80%, 48%, 0.9);    
+    --color-primary-black: hsl(0, 0%, 0%); 
+    --color-grey-form: hsl(216, 19%, 95%);
+    --color-grey-secondary-text: hsl(0, 0%, 48%);
+    --color-link-blue: hsla(213, 93%, 47%, 0.64);
+}
+
+body {    
+    /* Quitar el scroll lateral: */
+    overflow-x: hidden; 
+}
+
+/* Estilos del header y menú por defecto.*/
+header.data-sidebar-open{
+    background-color: white;
+    padding: 1.2rem 0;
+    padding-right: 6.75rem;
+    padding-left: 6.60rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilos del logo */
+p.logo {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+/* Menú en desktop-tablet (por defecto).*/
+nav.main-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Configuración estilos de los enlaces.*/
+a {
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color-primary-black)
+}
+
+a:hover {
+    color: rgb(89, 89, 89);
+}
+
+/* Subrayado enlace de registro */
+nav.main-menu a:last-child {
+    border-bottom: var(--color-link-blue) solid 2.5px;
+    padding-bottom: 0.2rem;
+}
+
+/* Contenedor principal. Hay dos secciones una que es el header y otra del header para abajo, que es el container. Dentro el container debe ir una imagen que ocupe todo el fondo.*/
+body main.container {
+    height: 700px;
+    width: 100%;
+}
+
+/* Imagen principal */
+div.main-image img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;background-repeat: no-repeat;
+}
+
+/* Estilos de la caja del formulario*/
+form.sign-up-form {
+    font-family: 'Nunito';
+    background-color: var(--color-grey-form);
+    padding: 2.5rem 10rem;
+    margin: 0;
+    border-radius: 20px;
+     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;   
+    
+    position: fixed;
+    top: 100%;
+    left: 100%;
+    z-index: 1000;
+}
+
+form.sign-up-form-open{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* El  formulario se vea en primer plano*/
+div.backdrop {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color-grey-secondary-text);
+    opacity: 50%;   
+}
+
+div.backdrop.backdrop-open {
+    display: block;
+}
+
+/* Título de crear la cuenta */
+div.create-account-container {
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.create-account-container i {
+   margin-left: auto;
+}
+
+p.create-account {
+    font-size: 1.7rem;
+    font-weight: 900;
+    width: 20rem;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Contenedor para cada input: espaciado con elemento siguiente */
+div.form-input, div.form-input-checkbox{
+    margin-bottom: 0.5rem;
+    width: 20rem;
+}
+
+/* Etiqueta de cada campo */
+label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;    
+}
+
+/* Entrada (donde usuario mete los datos, etiqueta input o select) */
+input, select {
+    display: block;
+    width: 20rem;
+    height: 40px;
+    border: 0.2px solid hsla(0, 0%, 60%, 0.639);
+    border-radius: 10px;
+}
+
+/* Título campo país */
+p.country-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+}
+
+/* Chexbox */
+/* Div que contiene el checkbox. Posición elementos: para poner el check y a la derecha el términos y condiciones.*/
+div.form-input-checkbox {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;    
+}
+
+/* Etiqueta del checkbox */
+div.form-input-checkbox label {
+    width: 25rem;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+/* Check del checkbox */
+div.form-input-checkbox input {
+    width: 1rem;
+    height: 1rem;
+}
+
+.styles-terms-and-conditions {
+    font-weight: 800; 
+    color: var(--color-grey-secondary-text)
+}
+    
+
+/* Ya tengo una cuenta */
+div.already-have-account p {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+div.already-have-account span {
+    font-weight: 800;
+}
+
+button {
+    width: 200px;
+    height: 3rem;
+    margin-bottom: 0.6rem;
+
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    
+    background-color: var(--color-primary-blue);
+    color: white;
+    
+    border-radius: 15px;
+    border: none;
+    box-shadow: 1px 1px 10px 1px var(--color-primary-blue);
+}
+
+/* MENSAJES DE ERROR */
+/* Borde rojo de la caja input al dar error*/
+.is-invalid {
+    border: 2px solid var(--color-primary-blue);
+}
+
+/* Hace que el span no se vea cuando no ha escrito o está correcto el campo. Estilos por defecto (es decir, el span no se ve)*/
+.message-error-hidden {
+    display: none;
+}
+
+/* Estilos para el mensaje de error */
+.message-error{
+    color:var(--color-primary-blue);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+/* Estilos para indicar que el checkbox está sin marcar */
+.is-invalid-checkbox {
+    border: 2px solid var(--color-primary-blue);
+    border-radius: 10px;
+}
+
+
+
+

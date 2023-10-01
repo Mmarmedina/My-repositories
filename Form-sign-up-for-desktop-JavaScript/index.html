@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../Form-sign-up-for-desktop-JavaScript/img/secuencia-de-comandos-de-java.svg">
+
+        <link rel="stylesheet" href="../Form-sign-up-for-desktop-JavaScript/styles/reset.css"
+        
+        <link rel="stylesheet" href="../Form-sign-up-for-desktop-JavaScript/styles/fonts.css">
+        
+        <link rel="stylesheet" href="../Form-sign-up-for-desktop-JavaScript/styles/styles.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+        <title>Creating a sign up form</title>
+    </head>
+
+    <body>
+        <header class= "data-sidebar-open">
+            <p class="logo">Logo</p>
+            <div class="div-main-menu">
+                <nav class="main-menu">
+                    <a href="#">Sign in</a>
+                    <a href="#" id="sign-up-link">Sign up</a>
+                </nav>
+            </div>       
+        </header>
+                
+        <main class="container">
+            <div>
+                <img src="../Form-sign-up-for-desktop-JavaScript/img/background-image-web.png" alt="Main-picture" class="main-image">
+            </div>
+           
+            
+            <form class="sign-up-form">
+                
+                <div class="create-account-container">
+                    <p class="create-account">Create Account</p>
+                    <i class="bi bi-x-lg"></i>
+                </div>               
+
+                <!-- Nombre: tipo texto -->
+                <div class="form-input-name">                    
+                    <label for="name">Your Name</label>
+                    <input id=name type="text" name=name placeholder="Write your name here">
+                    <span class="message-error-hidden"></span>
+                </div>
+
+                <!-- Dirección de correo: tipo email-->
+                <div class="form-input-email">                    
+                    <label for="email">Email Address</label>
+                    <input id=email type="email" name="email" placeholder="Write you best email here">
+                    <span class="message-error-hidden"></span>
+                </div>
+
+                 <!-- País: tipo select-->
+                <div class="form-input-select">
+                    <p class="country-title">Country</p>
+                    <select name="country" title = "Select the country where you live">
+                        <option value="" selected>Select one option</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Italy">Italy</option>
+                        <option value="France">France</option>
+                        <option value="Another-one">Another one</option>
+                    </select>
+                    <span class="message-error-hidden"></span>
+                    
+                </div>
+              
+                <!-- Birthday: tipo fecha-->
+                <div class="form-input-date">                    
+                   <label class= for="birthday">Date of birth</label>
+                   <input type="date" id="date" name="date" title="Select the date of your birthday" value="">
+                   <span class="message-error-hidden"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-input-password">                    
+                   <label for="password">Password</label>
+                   <input type="password" id="password" name="password" placeholder="Write your password here">
+                   <span class="message-error-hidden"></span>
+                </div>
+
+                <!-- Condiciones: tipo check-->
+                <div class="form-input-checkbox">
+                    <label for="conditions">Agree with <span class="styles-terms-and-conditions">Terms & Conditions</span></label>
+                    <input type="checkbox" id="conditions" name="conditions" title="Terms & Conditions">
+                </div>
+
+                <button type=submit class="send">CREATE ACCOUNT</button>
+
+                <div class="already-have-account">
+                    <p>Already have an account? <span>Login to Account</span></p>
+                </div>       
+            </form>
+            <div class="backdrop" id="backdrop"></div>
+        </main>
+    <script src="../Form-sign-up-for-desktop-JavaScript/main.js"></script>   
+    </body>
+</html>
