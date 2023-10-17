@@ -1,6 +1,3 @@
-
-import { nanoid } from '../node_modules/nanoid/nanoid.js'
-
 //* Seleccionar los elementos del DOM.
 // Seleccionar form que añade nuevas tareas. 
 const formNewTask = document.querySelector('.create-task')
@@ -44,51 +41,16 @@ const deleteTask = (deleteID)=>{
 
         if (allTasks[i].id === deleteID ){
             allTasks.splice(i,1)
+            console.log ('holi')
         }
     }   
     console.log (allTasks)
     printTasks()
 }
 
-//* Crear el HTML de las tareas (articles)
-const createTaskHTML = (task) => {
-
-    // Crear en cada vuelta el article de cada tarea.
-    const taskHTML = document.createElement('article')
-
-    // Añadirle al article sus clases.
-    taskHTML.className = 'article.task'
-    console.log (taskHTML.className)
-
-    // Añadir el contenido HTML
-    taskHTML.innerHTML = `
-    <article class="task">
-        <p><i class="bi bi-caret-right"></i>
-        ${task.task}</p>
-        <i class="bi bi-trash deleteIcon"></i>
-    </article>       
-    ` 
-    return taskHTML
-}
-
-//* Poner de color la tarea según la prioridad.     
-const colorTask = (taskpriority, taskHTML)=> {    
-    // Guardar en una variable el valor escogido en el select.
-    const priorityValue = formNewTask.priority.value
-    console.log (priorityValue)
-
-    // Según la prioridad se pone la tarea de un color, usando el siguiente condicional. 
-    if (taskpriority === 'urgent'){
-        taskHTML.style.backgroundColor = 'var(--color-urgent-task)'
-    }else if (taskpriority === 'intermediate'){
-        taskHTML.style.backgroundColor = 'var(--color-intermediate-task)'
-    }else {
-        taskHTML.style.backgroundColor = 'var(--color-normal-task)'
-    }
-}
-
 //* Función para sacar en pantalla las tareas. 
 const printTasks = ()=>{
+
     //* Borramos el section en el que se incluyen todas las tareas. Lo ponemos en blanco.
     listTask.innerHTML = ''    
     console.log (listTask)
@@ -96,25 +58,53 @@ const printTasks = ()=>{
     // * Se crean los articles (tareas) en cada vuelta del bucle. 
     for (let task of allTasks) {
         
-        const taskHTML = createTaskHTML(task)
-        listTask.append(taskHTML)
-        
-        colorTask(task.priority, taskHTML)
+        // Crear en cada vuelta el article de cada tarea.
+        const taskHTML = document.createElement('article')
 
+        // Añadirle al article sus clases.
+        taskHTML.className = 'article.task'
+        console.log (taskHTML.className)
+
+        // Añadir el contenido HTML
+        taskHTML.innerHTML = `
+        <article class="task">
+            <p><i class="bi bi-caret-right"></i>
+            ${task.task}</p>
+            <i class="bi bi-trash deleteIcon"></i>
+        </article>       
+        ` 
         // Seleccionar el icono de eliminar que crea en cada vuelta del bucle.
         const deleteTaskIcon = taskHTML.querySelector('.deleteIcon')
 
         // Escuchar el icono de eliminar en cada vuelta del bucle, si se hace click sobre él, se lanza una función encargada de eliminar la tarea.
         deleteTaskIcon.addEventListener('click', () => {deleteTask(task.id)})
-        console.log (task.id)             
-    }     
-}  
+        console.log (task.id)
+        
+        // Añadir cada article (tarea) creado en cada vuelta al section. 
+        listTask.append(taskHTML)
+
+        //* Poner de color la tarea según la prioridad.     
+       // Guardar en una variable el valor escogido en el select.
+        const priorityValue = formNewTask.priority.value
+        console.log (priorityValue)
+
+        // Según la prioridad se pone la tarea de un color, usando el siguiente condicional. 
+       if (task.priority === 'urgent'){
+            taskHTML.style.backgroundColor = 'var(--color-urgent-task)'
+       }else if (task.priority === 'intermediate'){
+            taskHTML.style.backgroundColor = 'var(--color-intermediate-task)'
+       }else {
+            taskHTML.style.backgroundColor = 'var(--color-normal-task)'
+       }     
+    }    
+}
 
 //* Función para comprobar si introduce bien la nueva tarea en el input. 
 const checkEmptyInputAndGetValue = (input) => {
 
     // Si deja el input de la tarea vacío, se añade la clase is-invalid, que sirve para poner de rojo el border del input, a modo de advertencia.    
-    if (input.value.trim() === ''){        
+    if (input.value.trim() === ''){
+        
         // Se pone rojo el borde y el placeholder al dejar el campo vacío.
         input.classList.add('is-invalid', 'is-invalid-placeholder-red')      
         
@@ -124,19 +114,6 @@ const checkEmptyInputAndGetValue = (input) => {
         formNewTask.writeTask.classList.remove('is-invalid')
         return input.value
     }       
-}
-
-//* Función para crear una nueva tarea en la base de datos.
-const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
-     // Crear un objeto idéntico al de la base de datos, con id, title y priority.
-     const newTask = {
-        id: counterID,
-        task: pnameTask, 
-        priority: ppriorityValue,
-    }    
-    // Meter la nueva tarea en el array ("en la base de datos").
-    allTasks.push(newTask)
-    console.log (allTasks)
 }
 
 //* Función para filtrar las tareas (incompleto)
@@ -173,12 +150,23 @@ const handleSubmit = (event) => {
 
     // El contador de ID suma 1, cada vez que añade bien una tarea.
     counterID++
-       
-    // Meter la nueva tarea en el array ("en la base de datos").
-    createNewTaskBBDD(nameTask, priorityValue)
 
-    // Imprime todos las tareas de nuevo, incluyendo la nueva.    
-    printTasks()              
+    // Crear un objeto idéntico al de la base de datos, con id, title y priority.
+    const newTask = {
+        id: counterID,
+        task: nameTask, 
+        priority: priorityValue,
+    }
+    
+    // Meter la nueva tarea en el array ("en la base de datos").
+    allTasks.push(newTask)
+    console.log (allTasks)
+
+    // Función que hace que la tarea se genere en pantalla. 
+    printTasks()
+    
+   
+           
 }
 
 //? Escuchar el evento submit y llamar a la función handleSubmit cuando se le de a guardar).

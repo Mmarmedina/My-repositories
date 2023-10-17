@@ -35,10 +35,12 @@
         </form>
 
         <form class="filter-task">
+          <!-- <label for="Frecuency">Filtrar las tareas</label> -->
           <select id="Frecuency" name="Frecuency" title="Frecuency">
-            <option value="daily">Diaria</option>
-            <option value="weekly">Semanal</option>
-            <option value="biweekly">Quincenal</option>
+            <!-- <option value="allTasks">Todas las tareas</option> -->
+            <option value="urgent">Urgente</option>
+            <option value="intermediate">Intermedia</option>
+            <option value="normal">Normal</option>
           </select>            
 
           <div class="search">
@@ -77,6 +79,6 @@
       <footer>App Todo's
       </footer>     
 
-      <script src="./src/main.js"></script>
+      <script src="./src/main.js" type="module"></script>
     </body>
 </html>
