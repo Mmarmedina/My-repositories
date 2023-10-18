@@ -1,17 +1,11 @@
-/* * {
-    border: black 1px solid;
-} */
+$color-urgent-task: hsla(352, 76%, 48%, 0.732);
+$color-intermediate-task: hsla(42, 95%, 57%, 0.755);
+$color-normal-task: hsla(127, 59%, 73%, 0.88);
+$color-primary-black: hsl(0, 1%, 17%);
+$color-primary-white: hsl(0, 0%, 100%);
+$color-grey-form: hsl(220, 3%, 82%);
+$color-warning-form: hsl(0, 100%, 50%);
 
-:root {
-    --color-urgent-task: hsla(352, 76%, 48%, 0.732);  
-    --color-intermediate-task: hsla(42, 95%, 57%, 0.755);  
-    --color-normal-task: hsla(127, 59%, 73%, 0.88);
-        
-    --color-primary-black: hsl(0, 1%, 17%);
-    --color-primary-white: hsl(0, 0%, 100%); 
-    --color-grey-form: hsl(220, 3%, 82%);
-    --color-warning-form: hsl(0, 100%, 50%);  
-}
 
 body {
     overflow-x: hidden;    
@@ -35,7 +29,7 @@ form.create-task {
     gap: 1rem;
     margin: 1rem 0;
     padding: 1.2rem;
-    border: solid 2px var(--color-grey-form);
+    border: solid 2px $color-grey-form;
     border-radius: 20px;    
 }
 
@@ -47,10 +41,9 @@ form.filter-task {
     gap: 0.8rem;
     padding: 1.2rem;
     margin: 1rem 0;
-    border: solid 2px var(--color-grey-form);
+    border: solid 2px $color-grey-form;
     border-radius: 20px;    
 }
-
 
 /* Bloque de tareas */
 section.list-tasks {
@@ -58,7 +51,7 @@ section.list-tasks {
     flex-direction: column;
     /* gap: 0.5rem; */
     padding: 1.2rem;
-    border: solid 2px var(--color-grey-form);
+    border: solid 2px $color-grey-form;
     border-radius: 20px;    
 }
 
@@ -75,8 +68,8 @@ footer {
     text-align: center;
     margin: 1rem auto;
     padding: 0.6rem;
-    background-color: var(--color-primary-black);
-    color: var(--color-primary-white);
+    background-color: $color-primary-black;
+    color: $color-primary-white;
     font-weight: bold;
 }
 
@@ -85,14 +78,15 @@ footer {
 input:focus{
     outline: none;
 }
+
 /* Poner el borde del input rojo */
 .is-invalid {
-    border: 2px solid var(--color-warning-form);
-    color: var(--color-warning-form);
+    border: 2px solid $color-warning-form;
+    color: $color-warning-form;
 } 
+
 /* Poner el placeholder rojo y fuente más gruesa */
 input.is-invalid-placeholder-red::placeholder {
-    color: var(--color-warning-form);
+    color: $color-warning-form;
     font-weight: 700;
 }
-

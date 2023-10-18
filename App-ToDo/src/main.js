@@ -1,4 +1,3 @@
-
 import { nanoid } from '../node_modules/nanoid/nanoid.js'
 
 //* Seleccionar los elementos del DOM.
@@ -17,24 +16,22 @@ console.log (select)
 //* Crear base de datos.
 const allTasks = [
     {
-        id: 1, 
+        id: nanoid(), 
         task: 'Comprar leche',
         priority: 'normal', 
     },
     {
-        id: 2, 
+        id: nanoid(), 
         task: 'Llamar al médico para pedir una cita',
         priority: 'intermediate', 
     },
     {
-        id: 3, 
+        id: nanoid(), 
         task: 'Terminar el informe para el trabajo',
         priority: 'urgent', 
     },
 ]
 
-//* Crear el contador.
-let counterID = 3
 console.log (allTasks)
 
 //* Función para eliminar tareas.
@@ -77,13 +74,20 @@ const colorTask = (taskpriority, taskHTML)=> {
     const priorityValue = formNewTask.priority.value
     console.log (priorityValue)
 
+    // Colores
+    const colors = {
+        colorUrgentTask: 'hsla(352, 76%, 48%, 0.732)',
+        colorIntermediateTask: 'hsla(42, 95%, 57%, 0.755)',
+        colorNormalTask: 'hsla(127, 59%, 73%, 0.88)'
+    }
+
     // Según la prioridad se pone la tarea de un color, usando el siguiente condicional. 
     if (taskpriority === 'urgent'){
-        taskHTML.style.backgroundColor = 'var(--color-urgent-task)'
+        taskHTML.style.backgroundColor = colors.colorUrgentTask
     }else if (taskpriority === 'intermediate'){
-        taskHTML.style.backgroundColor = 'var(--color-intermediate-task)'
+        taskHTML.style.backgroundColor = colors.colorIntermediateTask
     }else {
-        taskHTML.style.backgroundColor = 'var(--color-normal-task)'
+        taskHTML.style.backgroundColor =  colors.colorNormalTask
     }
 }
 
@@ -130,7 +134,7 @@ const checkEmptyInputAndGetValue = (input) => {
 const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
      // Crear un objeto idéntico al de la base de datos, con id, title y priority.
      const newTask = {
-        id: counterID,
+        id: nanoid(),
         task: pnameTask, 
         priority: ppriorityValue,
     }    
@@ -169,10 +173,7 @@ const handleSubmit = (event) => {
     console.log(`Tarea añadida
         Name: ${nameTask}
         Priority: ${priorityValue}
-    `)
-
-    // El contador de ID suma 1, cada vez que añade bien una tarea.
-    counterID++
+    `)   
        
     // Meter la nueva tarea en el array ("en la base de datos").
     createNewTaskBBDD(nameTask, priorityValue)
@@ -180,6 +181,8 @@ const handleSubmit = (event) => {
     // Imprime todos las tareas de nuevo, incluyendo la nueva.    
     printTasks()              
 }
+
+printTasks() 
 
 //? Escuchar el evento submit y llamar a la función handleSubmit cuando se le de a guardar).
 formNewTask.addEventListener('submit', handleSubmit)
