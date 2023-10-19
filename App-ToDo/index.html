@@ -5,12 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="icon" href="./src/assets/img/favicon.svg">
-
-        <link rel="stylesheet" href="../App-ToDo/src/styles/css/reset.css">
-        <link rel="stylesheet" href="./src/styles/css/fonts.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../App-ToDo/src/styles/css/reset.css">        
         <link rel="stylesheet" href="../App-ToDo/src/styles/css/styles.css">
-       
+               
         <title>App Todo's</title>
     </head>
 
@@ -34,10 +31,9 @@
           <button class="save" type="submit" name="save" >Guardar</button>
         </form>
 
-        <form class="filter-task">
-          <!-- <label for="Frecuency">Filtrar las tareas</label> -->
-          <select id="Frecuency" name="Frecuency" title="Frecuency">
-            <!-- <option value="allTasks">Todas las tareas</option> -->
+        <form class="filter-task">          
+          <select id="Frecuency" name="frecuency" title="frecuency">
+            <option id ="allTasks" value="allTasks">Todas las tareas</option>
             <option value="urgent">Urgente</option>
             <option value="intermediate">Intermedia</option>
             <option value="normal">Normal</option>
@@ -49,36 +45,12 @@
         </form>
 
         <section class="list-tasks">
-          <!-- <article class="task">
-            <p>Comprar leche</p>
-            <p>Eliminar</p>
-          </article>
-
-          <article class="task">
-            <p>Llamar al médico para pedir una cita</p>
-            <p>Eliminar</p>
-          </article>
-
-          <article class="task">
-            <p>Terminar el informe para el trabajo</p>
-            <p>Eliminar</p>
-          </article>
-
-          <article class="task">
-            <p>Hacer ejercicio durante 30 minutos</p>
-            <p>Eliminar</p>
-          </article>
-
-          <article class="task">
-            <p>Organizar el armario del dormitorio</p>
-            <p>Eliminar</p>
-          </article> -->
         </section>
       </div>
 
       <footer>App Todo's
-      </footer>     
-
+      </footer>   
+      
       <script src="./src/main.js" type="module"></script>
     </body>
 </html>

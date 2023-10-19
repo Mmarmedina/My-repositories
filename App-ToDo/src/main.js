@@ -9,10 +9,6 @@ console.log (formNewTask)
 const listTask = document.querySelector('.list-tasks')
 console.log (listTask)
 
-// Seleccionar el select de filtrado.
-const select = document.getElementById('Frecuency')
-console.log (select)
-
 //* Crear base de datos.
 const allTasks = [
     {
@@ -37,13 +33,24 @@ console.log (allTasks)
 //* Función para eliminar tareas.
 const deleteTask = (deleteID)=>{
 
-    for (let i = 0; i < allTasks.length; i++){
+    //? Método 1. 
+    // for (let i = 0; i < allTasks.length; i++){
 
-        if (allTasks[i].id === deleteID ){
-            allTasks.splice(i,1)
+    //     if (allTasks[i].id === deleteID ){
+    //         allTasks.splice(i,1)
+    //     }
+    // }   
+    // console.log (allTasks)
+
+    //? Método 2
+    allTasks.forEach((taskObj, i) => {
+
+        if(taskObj.id === deleteID) {
+            allTasks.splice(i, 1)
         }
-    }   
-    console.log (allTasks)
+    })
+    console.log (allTasks) 
+
     printTasks()
 }
 
@@ -56,13 +63,13 @@ const createTaskHTML = (task) => {
     // Añadirle al article sus clases.
     taskHTML.className = 'article.task'
     console.log (taskHTML.className)
-
+    
     // Añadir el contenido HTML
     taskHTML.innerHTML = `
     <article class="task">
         <p><i class="bi bi-caret-right"></i>
         ${task.task}</p>
-        <i class="bi bi-trash deleteIcon"></i>
+        <i class="bi bi-trash deleteIcon"></i>              
     </article>       
     ` 
     return taskHTML
@@ -130,6 +137,26 @@ const checkEmptyInputAndGetValue = (input) => {
     }       
 }
 
+//* Función para crear mensaje de alerta cuando le da a guardar sin escribir nada en el campo "nueva tarea".
+const createAlertBootstrap = (mensaje = 'Rellena el campo vacío', color = 'danger') => {
+    const alertHTML = document.createElement('div')
+    alertHTML.className = `alert alert-${color} alert-dismissible shadow position-absolute start-50 top-50 translate-middle-x w-50`
+    alertHTML.innerHTML = `
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div>${mensaje}</div>    `
+        
+    const fadeInOut = alertHTML.animate([ 
+      { opacity: 0, offset: 0 }, 
+      { opacity: 1, offset: 0.1 }, 
+      { opacity: 1, offset: 0.9 }, 
+      { opacity: 0, offset: 1 } 
+    ], { duration: 2500, fill: 'forwards' })  
+    
+    fadeInOut.addEventListener('finish', () => alertHTML.remove())   
+  
+    document.body.append(alertHTML)
+  }
+
 //* Función para crear una nueva tarea en la base de datos.
 const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
      // Crear un objeto idéntico al de la base de datos, con id, title y priority.
@@ -143,13 +170,6 @@ const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
     console.log (allTasks)
 }
 
-//* Función para filtrar las tareas (incompleto)
-// const filterTasks = ()=> {
-//     // Almacena el valor del select escogido.
-//     const priorityValueFilter = select.value
-//     console.log (priorityValueFilter)
-      
-// }
 
 //* Función para gestionar el botón de enviar. 
 const handleSubmit = (event) => {
@@ -162,6 +182,7 @@ const handleSubmit = (event) => {
 
     // Si deja en blanco el campo se corta la función.
     if (nameTask === null){
+        createAlertBootstrap('Escribe tu tarea 😊', 'danger')
         return
     }
 
@@ -182,12 +203,80 @@ const handleSubmit = (event) => {
     printTasks()              
 }
 
-printTasks() 
-
 //? Escuchar el evento submit y llamar a la función handleSubmit cuando se le de a guardar).
 formNewTask.addEventListener('submit', handleSubmit)
+printTasks() 
 
 
-//  //? Escuchar cuando se cambia de valor el select. Necesario para filtrar las tareas (incompleto)
-//  select.addEventListener('change', () => {filterTasks(task.priority)})
-//  Que por defecto salgan las tareas que están en la base de datos. 
+
+//? Escuchar cuando se cambia de valor el select (ya está seleccionado)
+// Seleccionar el select de filtrado.
+const selectFilter = document.getElementById('Frecuency')
+console.log (selectFilter)
+
+
+selectFilter.addEventListener('change', (event) => {
+
+  // ? Generar nuevos arrays, filtrando por prioridad.
+  const arrayUrgentTasks = allTasks.filter((task) => {  return task.priority === 'urgent' })
+  console.log (arrayUrgentTasks)
+
+  const arrayNomalTasks = allTasks.filter(task => { return task.priority === 'normal'})
+  console.log (arrayNomalTasks)
+
+  const arrayIntermediateTasks = allTasks.filter(task => {return task.priority === 'intermediate'})
+  console.log (arrayIntermediateTasks)
+
+  
+  // Aquí ahora hay que hacer que al hacer click en uno pasa esto.     
+  const selectedValue = selectFilter.value 
+  console.log (selectedValue)
+
+
+  if (selectedValue === 'allTasks'){
+    console.log ('jopetis') 
+            
+    //* Borramos el section en el que se incluyen todas las tareas. Lo ponemos en blanco.
+    listTask.innerHTML = ''    
+    console.log (listTask)
+
+    // * Se crean los articles (tareas) en cada vuelta del bucle. 
+    for (let task of allTasks) {
+        
+        const taskHTML = createTaskHTML(task)
+        listTask.append(taskHTML)
+        
+        colorTask(task.priority, taskHTML)
+
+        // Seleccionar el icono de eliminar que crea en cada vuelta del bucle.
+        const deleteTaskIcon = taskHTML.querySelector('.deleteIcon')
+
+        // Escuchar el icono de eliminar en cada vuelta del bucle, si se hace click sobre él, se lanza una función encargada de eliminar la tarea.
+        deleteTaskIcon.addEventListener('click', () => {deleteTask(task.id)})
+        console.log (task.id)             
+    } 
+
+
+  }else if (selectedValue === 'urgent') {
+    console.log ('urgente')    
+  }else if (selectedValue === 'intermediate') {
+    console.log ('intermediate')
+  }else if (selectedValue === 'normal') {
+    console.log ('normal')
+  }
+})
+
+// Crear la función print para que la ejecute pasandole un array en particular. 
+// Sustituir los bucles por el método eachfor.
+// Repasar que vi ayer y como se puede aplicar.
+
+
+
+
+
+
+
+
+
+
+
