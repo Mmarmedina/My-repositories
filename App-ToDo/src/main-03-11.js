@@ -1,4 +1,4 @@
-import { nanoid } from '../node_modules/nanoid/nanoid.js'
+import { nanoid } from 'nanoid/nanoid.js'
 
 //* Seleccionar los elementos del DOM.
 // Seleccionar form que añade nuevas tareas. 
@@ -10,42 +10,25 @@ const listTask = document.querySelector('.list-tasks')
 console.log (listTask)
 
 //* Crear base de datos.
-// const allTasks = [
-//     {
-//         id: nanoid(), 
-//         task: 'Comprar leche',
-//         priority: 'normal', 
-//     },
-//     {
-//         id: nanoid(), 
-//         task: 'Llamar al médico para pedir una cita',
-//         priority: 'intermediate', 
-//     },
-//     {
-//         id: nanoid(), 
-//         task: 'Terminar el informe para el trabajo',
-//         priority: 'urgent', 
-//     },
-// ]
-// console.log (allTasks)
+const allTasks = [
+    {
+        id: nanoid(), 
+        task: 'Comprar leche',
+        priority: 'normal', 
+    },
+    {
+        id: nanoid(), 
+        task: 'Llamar al médico para pedir una cita',
+        priority: 'intermediate', 
+    },
+    {
+        id: nanoid(), 
+        task: 'Terminar el informe para el trabajo',
+        priority: 'urgent', 
+    },
+]
 
-// Crear la varaible allTask con la información del localStorage. La variable allTasks coge lo que había en localStorage.
-let allTasks = JSON.parse(localStorage.getItem('allTasks'))
-
-
-const getTasksFromLocalStorage = () => {
-
-    console.log('Guardar localStorage')
-
-}
-
-// Cada vez que metamos una tarea nueva o eliminemos tarea, hay que actualizar el localStorage.
-const updateTaskToLocalStorage = () => {
-
-     // Después de añadir nuevo elemento se mete en localStorage el array de tareas actualizado.
-     localStorage.setItem('allTasks', JSON.stringify(allTasks))
-}
-
+console.log (allTasks)
 
 //* Función para eliminar tareas.
 const deleteTask = (deleteID)=>{
@@ -59,15 +42,12 @@ const deleteTask = (deleteID)=>{
     // }   
     // console.log (allTasks)
 
-    //? Método 3
+    //? Método 2
     allTasks.forEach((taskObj, i) => {
 
         if(taskObj.id === deleteID) {
             allTasks.splice(i, 1)
         }
-
-        // Después de eliminar actualizar localStore con la nueva versión del array.
-        updateTaskToLocalStorage()
     })
     console.log (allTasks) 
 
@@ -79,12 +59,10 @@ const createTaskHTML = (task) => {
 
     // Crear en cada vuelta el article de cada tarea.
     const taskHTML = document.createElement('article')
-    console.log (taskHTML)
 
     // Añadirle al article sus clases.
     taskHTML.className = 'article.task'
-    // console.log (taskHTML.className)
-    console.log (taskHTML)
+    console.log (taskHTML.className)
     
     // Añadir el contenido HTML
     taskHTML.innerHTML = `
@@ -99,9 +77,9 @@ const createTaskHTML = (task) => {
 
 //* Poner de color la tarea según la prioridad.     
 const colorTask = (taskpriority, taskHTML)=> {    
-    // Guardar en una variable el valor escogido en el select (al terminar eliminar).
-    // const priorityValue = formNewTask.priority.value
-    // console.log (priorityValue)
+    // Guardar en una variable el valor escogido en el select.
+    const priorityValue = formNewTask.priority.value
+    console.log (priorityValue)
 
     // Colores
     const colors = {
@@ -128,14 +106,10 @@ const printTasks = ()=>{
 
     // * Se crean los articles (tareas) en cada vuelta del bucle. 
     for (let task of allTasks) {
-
-        // Crear las tareas
+        
         const taskHTML = createTaskHTML(task)
-
-        // Añade en cada vuelta al section cada article creado
         listTask.append(taskHTML)
         
-        // Pintar la tarea en función de la urgencia.
         colorTask(task.priority, taskHTML)
 
         // Seleccionar el icono de eliminar que crea en cada vuelta del bucle.
@@ -185,7 +159,7 @@ const createAlertBootstrap = (mensaje = 'Rellena el campo vacío', color = 'dang
 
 //* Función para crear una nueva tarea en la base de datos.
 const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
-     // Crear un objeto idéntico al de la base de datos con id, title y priority.
+     // Crear un objeto idéntico al de la base de datos, con id, title y priority.
      const newTask = {
         id: nanoid(),
         task: pnameTask, 
@@ -193,9 +167,6 @@ const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
     }    
     // Meter la nueva tarea en el array ("en la base de datos").
     allTasks.push(newTask)
-
-    updateTaskToLocalStorage()
-    
     console.log (allTasks)
 }
 
@@ -235,107 +206,67 @@ const handleSubmit = (event) => {
 //? Escuchar el evento submit y llamar a la función handleSubmit cuando se le de a guardar).
 formNewTask.addEventListener('submit', handleSubmit)
 
-
-
 // Con esto al cargar la página salen las 3 tareas.
 printTasks()
 
 
 
+//? Escuchar cuando se cambia de valor el select (ya está seleccionado)
+// Seleccionar el select de filtrado.
+const selectFilter = document.getElementById('Frecuency')
+console.log (selectFilter)
 
 
+selectFilter.addEventListener('change', (event) => {
 
+  // ? Generar nuevos arrays, filtrando por prioridad.
+  const arrayUrgentTasks = allTasks.filter((task) => {  return task.priority === 'urgent' })
+  console.log (arrayUrgentTasks)
 
-// Crear local storage: 
+  const arrayNomalTasks = allTasks.filter(task => { return task.priority === 'normal'})
+  console.log (arrayNomalTasks)
 
-    // Nueva función
-
-// Crea un nueva referencia cuando añade nuevo libro? 
-
-// recorrer todas las tareas del array y una a una comprobar primero si son de la urgencia que está seleccionada en el desplegable (o sea, si en el desplegable poner "Ver todas" las muestro todas, pero si pone "Urgente" solo mostraré las taresas que son urgentes, y lo mismo con intermedia y normal.
-
-// y después de esa comprobación, miramos si el input de búsqueda tiene algún texto. Si lo tiene, tenemos que comprobar que el nombre de la tarea actual que estamos procesando contiene dentro ese texto:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //? Escuchar cuando se cambia de valor el select (ya está seleccionado)
-// // Seleccionar el select de filtrado.
-// const selectFilter = document.getElementById('Frecuency')
-// console.log (selectFilter)
-
-
-// selectFilter.addEventListener('change', (event) => {
-
-//   // ? Generar nuevos arrays, filtrando por prioridad.
-//   const arrayUrgentTasks = allTasks.filter((task) => {  return task.priority === 'urgent' })
-//   console.log (arrayUrgentTasks)
-
-//   const arrayNomalTasks = allTasks.filter(task => { return task.priority === 'normal'})
-//   console.log (arrayNomalTasks)
-
-//   const arrayIntermediateTasks = allTasks.filter(task => {return task.priority === 'intermediate'})
-//   console.log (arrayIntermediateTasks)
+  const arrayIntermediateTasks = allTasks.filter(task => {return task.priority === 'intermediate'})
+  console.log (arrayIntermediateTasks)
 
   
-//   // Aquí ahora hay que hacer que al hacer click en uno pasa esto.     
-//   const selectedValue = selectFilter.value 
-//   console.log (selectedValue)
+  // Aquí ahora hay que hacer que al hacer click en uno pasa esto.     
+  const selectedValue = selectFilter.value 
+  console.log (selectedValue)
 
 
-//   if (selectedValue === 'allTasks'){
-//     console.log ('jopetis') 
+  if (selectedValue === 'allTasks'){
+    console.log ('jopetis') 
             
-//     //* Borramos el section en el que se incluyen todas las tareas. Lo ponemos en blanco.
-//     listTask.innerHTML = ''    
-//     console.log (listTask)
+    //* Borramos el section en el que se incluyen todas las tareas. Lo ponemos en blanco.
+    listTask.innerHTML = ''    
+    console.log (listTask)
 
-//     // * Se crean los articles (tareas) en cada vuelta del bucle. 
-//     for (let task of allTasks) {
+    // * Se crean los articles (tareas) en cada vuelta del bucle. 
+    for (let task of allTasks) {
         
-//         const taskHTML = createTaskHTML(task)
-//         listTask.append(taskHTML)
+        const taskHTML = createTaskHTML(task)
+        listTask.append(taskHTML)
         
-//         colorTask(task.priority, taskHTML)
+        colorTask(task.priority, taskHTML)
 
-//         // Seleccionar el icono de eliminar que crea en cada vuelta del bucle.
-//         const deleteTaskIcon = taskHTML.querySelector('.deleteIcon')
+        // Seleccionar el icono de eliminar que crea en cada vuelta del bucle.
+        const deleteTaskIcon = taskHTML.querySelector('.deleteIcon')
 
-//         // Escuchar el icono de eliminar en cada vuelta del bucle, si se hace click sobre él, se lanza una función encargada de eliminar la tarea.
-//         deleteTaskIcon.addEventListener('click', () => {deleteTask(task.id)})
-//         console.log (task.id)             
-//     } 
+        // Escuchar el icono de eliminar en cada vuelta del bucle, si se hace click sobre él, se lanza una función encargada de eliminar la tarea.
+        deleteTaskIcon.addEventListener('click', () => {deleteTask(task.id)})
+        console.log (task.id)             
+    } 
 
 
-//   }else if (selectedValue === 'urgent') {
-//     console.log ('urgente')    
-//   }else if (selectedValue === 'intermediate') {
-//     console.log ('intermediate')
-//   }else if (selectedValue === 'normal') {
-//     console.log ('normal')
-//   }
-// })
+  }else if (selectedValue === 'urgent') {
+    console.log ('urgente')    
+  }else if (selectedValue === 'intermediate') {
+    console.log ('intermediate')
+  }else if (selectedValue === 'normal') {
+    console.log ('normal')
+  }
+})
 
 // Crear la función print para que la ejecute pasandole un array en particular. 
 // Sustituir los bucles por el método eachfor.
@@ -345,7 +276,6 @@ printTasks()
     // 06-DOM-JAVASCRIPT\41-app-library-localStorage
     // Vuelve a explicacion en 1:00:00 horas.
     // 2:00:00
-
 
 
 
