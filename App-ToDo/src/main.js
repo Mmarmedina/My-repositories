@@ -189,7 +189,7 @@ const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
    
 }
 
-//* Función para gestionar el botón de enviar. 
+//* Función para gestionar el botón de guardar nueva tarea
 const handleSubmit = (event) => {
     // Prevenir el comportamiento por defecto del formulario. 
     event.preventDefault()
@@ -206,13 +206,7 @@ const handleSubmit = (event) => {
 
     // Guardar en una variable el valor escogido en el select.
     const priorityValue = formNewTask.priority.value
-    console.log (priorityValue)
-
-    // Si escribe un nombre, se imprime en consola los datos que ha metido el usuario
-    console.log(`Tarea añadida
-        Name: ${nameTask}
-        Priority: ${priorityValue}
-    `)   
+    console.log (priorityValue)   
        
     // Meter la nueva tarea en el array ("en la base de datos").
     createNewTaskBBDD(nameTask, priorityValue)
@@ -221,28 +215,29 @@ const handleSubmit = (event) => {
     printTasks(allTasks)              
 }
 
-const handleFilterSelect = () => {
-    const selectedValue = selectFilter.value 
+//* Función para filtrar por prioridad. 
+const filterTasksbyPriority = () => {
+    const selectedValue = selectFilter.value
     console.log (selectedValue)
 
-    //* Generar nuevos arrays, filtrando por prioridad.    
+    // Generar nuevos arrays, filtrando por prioridad.    
     if (selectedValue === 'allTasks'){
-        printTasks(allTasks)
+        return(allTasks)        
 
     }else if (selectedValue === 'urgent'){
         const arrayUrgentTasks = allTasks.filter((task) => {  return task.priority === 'urgent' })
         console.log (arrayUrgentTasks)
-        printTasks(arrayUrgentTasks)
+        return(arrayUrgentTasks)        
 
     }else if (selectedValue === 'intermediate'){
         const arrayIntermediateTasks = allTasks.filter((task) => {return task.priority === 'intermediate'})
         console.log (arrayIntermediateTasks)
-        printTasks(arrayIntermediateTasks)
+        return(arrayIntermediateTasks)        
 
     }else {
         const arrayNomalTasks = allTasks.filter((task) => { return task.priority === 'normal'})
         console.log (arrayNomalTasks)
-        printTasks(arrayNomalTasks)
+        return(arrayNomalTasks)        
     }
 }
 
@@ -251,8 +246,11 @@ const handleSearchFilter = () => {
     const searchText = searchInput.value.toLowerCase()
     console.log(searchText)
 
+    //Filtar por la prioridad
+    const tasksFilterByPriority = filterTasksbyPriority()
+
     // Filtra las tareas que coincidan con el texto de búsqueda.
-    const filteredTasks = allTasks.filter((task) => {
+    const filteredTasks = tasksFilterByPriority.filter((task) => {
         return task.task.toLowerCase().includes(searchText)       
     })    
     console.log (filteredTasks)
@@ -262,12 +260,11 @@ const handleSearchFilter = () => {
 }
 
 formNewTask.addEventListener('submit', handleSubmit)
-selectFilter.addEventListener('change', handleFilterSelect)
+selectFilter.addEventListener('change', handleSearchFilter)
 searchInput.addEventListener ('input', handleSearchFilter)
 
 getTasksFromLocalStorage()
 printTasks(allTasks)
-
 
 
 
