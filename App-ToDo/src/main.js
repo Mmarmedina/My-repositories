@@ -9,6 +9,14 @@ console.log (formNewTask)
 const listTask = document.querySelector('.list-tasks')
 console.log (listTask)
 
+// Seleccionar el select de filtrado de tareas.
+const selectFilter = document.getElementById('Frecuency')
+console.log (selectFilter)
+
+// Seleccionar el input (buscador).
+const searchInput = document.getElementById('search')
+console.log (searchInput)
+
 let allTasks
 
 //* LocalStorage
@@ -33,7 +41,7 @@ const deleteTask = (deleteID)=>{
     allTasks = allTasks.filter ((taskObj) => { return taskObj.id !== deleteID})
     console.log(allTasks)
 
-    //? Método 2 
+    //? Método 2 (alternativo)
     // for (let i = 0; i < allTasks.length; i++){
 
     //     if (allTasks[i].id === deleteID ){
@@ -42,18 +50,12 @@ const deleteTask = (deleteID)=>{
     // }   
     // console.log (allTasks)
 
-    //? Método 3
+    //? Método 3 (alternativo)
     // allTasks.forEach((taskObj, i) => {
 
     //     if(taskObj.id === deleteID) {
     //         allTasks.splice(i, 1)
     //     }
-
-    //     // Después de eliminar actualizar localStore con la nueva versión del array.
-    //     updateTaskToLocalStorage()
-    // })
-    // console.log (allTasks) 
-
     
     updateTaskToLocalStorage()
 
@@ -165,7 +167,7 @@ const createAlertBootstrap = (mensaje = 'Rellena el campo vacío', color = 'dang
     fadeInOut.addEventListener('finish', () => alertHTML.remove())   
   
     document.body.append(alertHTML)
-  }
+}
 
 //* Función para crear una nueva tarea en la base de datos.
 const createNewTaskBBDD = (pnameTask,ppriorityValue) => {
@@ -219,19 +221,6 @@ const handleSubmit = (event) => {
     printTasks(allTasks)              
 }
 
-//* Escuchar el evento submit y llamar a la función handleSubmit cuando se le de a guardar.
-formNewTask.addEventListener('submit', handleSubmit)
-
-getTasksFromLocalStorage()
-
-printTasks(allTasks)
-
-
-//* Escuchar cuando se cambia de valor el select (ya está seleccionado)
-// Seleccionar el select de filtrado de tareas.
-const selectFilter = document.getElementById('Frecuency')
-console.log (selectFilter)
-
 const handleFilterSelect = () => {
     const selectedValue = selectFilter.value 
     console.log (selectedValue)
@@ -246,22 +235,41 @@ const handleFilterSelect = () => {
         printTasks(arrayUrgentTasks)
 
     }else if (selectedValue === 'intermediate'){
-        const arrayIntermediateTasks = allTasks.filter(task => {return task.priority === 'intermediate'})
+        const arrayIntermediateTasks = allTasks.filter((task) => {return task.priority === 'intermediate'})
         console.log (arrayIntermediateTasks)
         printTasks(arrayIntermediateTasks)
 
     }else {
-        const arrayNomalTasks = allTasks.filter(task => { return task.priority === 'normal'})
+        const arrayNomalTasks = allTasks.filter((task) => { return task.priority === 'normal'})
         console.log (arrayNomalTasks)
         printTasks(arrayNomalTasks)
     }
 }
 
-selectFilter.addEventListener('change', handleFilterSelect)
+const handleSearchFilter = () => {
+    // Obtiene el valor del campo de búsqueda.
+    const searchText = searchInput.value.toLowerCase()
+    console.log(searchText)
 
-//* Filtrado de tareas en el buscador
-const searchInput = document.getElementById('search')
-console.log (searchInput)
+    // Filtra las tareas que coincidan con el texto de búsqueda.
+    const filteredTasks = allTasks.filter((task) => {
+        return task.task.toLowerCase().includes(searchText)       
+    })    
+    console.log (filteredTasks)
+    
+    // Imprime las tareas filtradas en la lista de tareas.
+    printTasks(filteredTasks)
+}
+
+formNewTask.addEventListener('submit', handleSubmit)
+selectFilter.addEventListener('change', handleFilterSelect)
+searchInput.addEventListener ('input', handleSearchFilter)
+
+getTasksFromLocalStorage()
+printTasks(allTasks)
+
+
+
 
 
 

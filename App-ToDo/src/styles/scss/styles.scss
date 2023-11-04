@@ -82,7 +82,9 @@ footer {
     padding: 0.6rem;
     background-color: $primary;
     color: $secondary;
-    font-weight: bold;    
+    font-weight: bold;
+    font-size: large;
+    height: 100vh;    
 }
 
 /* Mensaje de advertencia en caso de error */
