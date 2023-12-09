@@ -1,1 +1,8 @@
-<p>thumbnail-post works!</p>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]= "post.img" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title h5">{{post.title}}</h2>
+      <p class="card-title m0">{{post.excerpt}}</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/posts/', post.id]">Ver más</a>
+    </div>
+</div>

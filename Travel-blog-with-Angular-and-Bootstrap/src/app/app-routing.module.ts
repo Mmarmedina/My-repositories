@@ -10,9 +10,7 @@ const routes: Routes = [
 
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   {path: "home", component: BlogComponent},
-  {path: "posts", component: BlogComponent},
-  {path: 'post/:idpost', component: ViewPostComponent},
-  {path: "categories", component: BlogComponent},
+  {path: 'posts/:idpost', component: ViewPostComponent},
   {path: 'categories/:categoryTitle', component: BlogComponent},
   {path: 'new', component: FormComponent},
   {path: '**', redirectTo: '/home'}

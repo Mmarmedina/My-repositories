@@ -1,4 +1,37 @@
-<p>blog works!</p>
-<!-- recibe del servicio todos los Post y los muestra demanera ordenada. -->
+<section class="container">
+    <div class="row">
+        <!-- Filtros -->
+        <div class="col-12 col-md-3">
+            <!-- Filtro -->
+            <div class="row">
+                <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
+                <!-- <aside class="col-12">
+                    <label class="mb-1">Filtra por:</label>
+                    <select title="post-filter">
+                        <option name = "all" value = "1">Todos las categorías</option>
+                        <ng-container *ngFor="let category of arrCategories">
+                            <option name = "category.title" [value] = "category.id">{{category.title}}</option>
+                        </ng-container>
+                    </select>
+                </aside> -->
+            </div>   
+        </div>
 
-<!-- Disponer de un selector de categorías que nos permitan filtrar por categoría. Componente filter -->
+        <!-- lista de posts -->
+        <div class="col-12 col-md-9">
+            <div class="row g-4">
+                <article class="col-6 col-md-4" *ngFor="let post of arrPosts">
+                   <app-thumbnail-post [post]="post"></app-thumbnail-post>
+                    <!-- <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" [src]= "post.img" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{post.title}}</h5>
+                          <p class="card-title">{{post.excerpt}}</p>
+                          <a href="#" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div> -->
+                </article>
+            </div>
+        </div>
+    </div>
+</section>  

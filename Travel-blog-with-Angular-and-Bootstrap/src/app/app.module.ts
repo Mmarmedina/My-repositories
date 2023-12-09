@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { FormComponent } from './components/form/form.component';
 import { ViewPostComponent } from './components/view-post/view-post.component';
-import { ButtonComponent } from './components/button/button.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -18,7 +17,6 @@ import { ThumbnailPostComponent } from './components/thumbnail-post/thumbnail-po
     BlogComponent,
     FormComponent,
     ViewPostComponent,
-    ButtonComponent,
     FilterComponent,
     NavComponent,
     FooterComponent,
