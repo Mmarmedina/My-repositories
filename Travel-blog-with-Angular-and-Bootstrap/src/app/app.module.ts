@@ -10,6 +10,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ThumbnailPostComponent } from './components/thumbnail-post/thumbnail-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ThumbnailPostComponent } from './components/thumbnail-post/thumbnail-po
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,14 @@ export class ViewPostComponent {
 
   myPost: Post | undefined;
 
+  
+  background = {
+    // 'background': 'url(' + this.myPost?.img + ')',
+    'height': '25vh',
+    'background-color': '#003B95'
+  }
+
+
   constructor (
     private activatedRoute: ActivatedRoute,
     private postsService: PostsService){
@@ -27,6 +35,7 @@ export class ViewPostComponent {
         id_category: 0
 
     }
+    
   }
 
   ngOnInit (): void {

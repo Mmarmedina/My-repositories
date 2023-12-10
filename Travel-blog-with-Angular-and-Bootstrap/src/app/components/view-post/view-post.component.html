@@ -1,1 +1,112 @@
-<h1>{{my}}</h1>
+<!-- 
+<div [ngStyle]="background">
+    <h1 class="">{{myPost?.title}}</h1>    
+</div> -->
+
+<section class="d-flex" [ngStyle]="background">
+    <header class="container">
+        <img [alt]="myPost?.title" [title]="myPost?.title">
+        <p class="h1 text-white fw-bold my-3 mx-5">{{myPost?.title}}</p>
+    </header>
+</section>
+
+<div class="container">
+ 
+    <p class="my-3 mx-5">Autor: {{myPost?.author}}</p>
+    <p class="my-3 mx-5">Fecha del viaje: {{myPost?.date}}</p>
+  
+
+    <section class="my-3 mx-5">
+        <p>{{myPost?.text}}</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique accusantium vel expedita. Sapiente eius temporibus minus nobis fugiat tempore architecto ipsa rem voluptates eligendi, facilis, amet nostrum quaerat dolorem?
+        Nisi quam, eveniet eum sapiente vitae in possimus eligendi nobis voluptate porro saepe. Quasi voluptas fugit, sint sit eos odio quidem soluta qui hic dolor deserunt deleniti, veritatis aperiam consequatur?
+        Iusto eligendi expedita culpa alias explicabo quisquam ipsam harum quos saepe ipsum unde, id beatae sed optio similique maiores deleniti nisi fuga nemo officia illo odio? Beatae dolorem tempora placeat!
+        Minima deserunt nobis, ab animi nulla corrupti id quis ipsa fugit non rem nihil velit nemo deleniti architecto blanditiis eos neque laudantium fugiat nisi autem quas. Cumque libero tempora illum.
+        Necessitatibus iste commodi, ad porro similique temporibus fuga quod atque doloremque hic dignissimos facilis ullam praesentium corporis! Tenetur quasi laborum at a dignissimos ex rerum molestias! Dicta ex deserunt magnam.
+        Eveniet officia numquam, doloribus distinctio, deserunt incidunt, minus illo aspernatur nulla temporibus libero suscipit magni dolorum eius. Impedit, magnam dolorum. Cupiditate cumque quod, quae dolores mollitia doloremque quibusdam ea quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique accusantium vel expedita. Sapiente eius temporibus minus nobis fugiat tempore architecto ipsa rem voluptates eligendi, facilis, amet nostrum quaerat dolorem?
+        Nisi quam, eveniet eum sapiente vitae in possimus eligendi nobis voluptate porro saepe. Quasi voluptas fugit, sint sit eos odio quidem soluta qui hic dolor deserunt deleniti, veritatis aperiam consequatur?
+        Iusto eligendi expedita culpa alias explicabo quisquam ipsam harum quos saepe ipsum unde, id beatae sed optio similique maiores deleniti nisi fuga nemo officia illo odio? Beatae dolorem tempora placeat!
+        Minima deserunt nobis, ab animi nulla corrupti id quis ipsa fugit non rem nihil velit nemo deleniti architecto blanditiis eos neque laudantium fugiat nisi autem quas. Cumque libero tempora illum.
+        Necessitatibus iste commodi, ad porro similique temporibus fuga quod atque doloremque hic dignissimos facilis ullam praesentium corporis! Tenetur quasi laborum at a dignissimos ex rerum molestias! Dicta ex deserunt magnam.
+        Eveniet officia numquam, doloribus distinctio, deserunt incidunt, minus illo aspernatur nulla temporibus libero suscipit magni dolorum eius. Impedit, magnam dolorum. Cupiditate cumque quod, quae dolores mollitia doloremque quibusdam ea quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique accusantium vel expedita. Sapiente eius temporibus minus nobis fugiat tempore architecto ipsa rem voluptates eligendi, facilis, amet nostrum quaerat dolorem?
+        Nisi quam, eveniet eum sapiente vitae in possimus eligendi nobis voluptate porro saepe. Quasi voluptas fugit, sint sit eos odio quidem soluta qui hic dolor deserunt deleniti, veritatis aperiam consequatur?
+        Iusto eligendi expedita culpa alias explicabo quisquam ipsam harum quos saepe ipsum unde, id beatae sed optio similique maiores deleniti nisi fuga nemo officia illo odio? Beatae dolorem tempora placeat!
+        Minima deserunt nobis, ab animi nulla corrupti id quis ipsa fugit non rem nihil velit nemo deleniti architecto blanditiis eos neque laudantium fugiat nisi autem quas. Cumque libero tempora illum.
+        Necessitatibus iste commodi, ad porro similique temporibus fuga quod atque doloremque hic dignissimos facilis ullam praesentium corporis! Tenetur quasi laborum at a dignissimos ex rerum molestias! Dicta ex deserunt magnam.
+        Eveniet officia numquam, doloribus distinctio, deserunt incidunt, minus illo aspernatur nulla temporibus libero suscipit magni dolorum eius. Impedit, magnam dolorum. Cupiditate cumque quod, quae dolores mollitia doloremque quibusdam ea quos?</p>
+    </section>
+</div>
+
+
+
+<!-- 
+<div class="container">
+
+    <h1>{{myPost?.title}}</h1>
+    <p>Autor: {{myPost?.author}}</p>
+ 
+   
+
+    <section class="my-3 mx-5">
+        <p>{{myPost?.text}}</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique accusantium vel expedita. Sapiente eius temporibus minus nobis fugiat tempore architecto ipsa rem voluptates eligendi, facilis, amet nostrum quaerat dolorem?
+        Nisi quam, eveniet eum sapiente vitae in possimus eligendi nobis voluptate porro saepe. Quasi voluptas fugit, sint sit eos odio quidem soluta qui hic dolor deserunt deleniti, veritatis aperiam consequatur?
+        Iusto eligendi expedita culpa alias explicabo quisquam ipsam harum quos saepe ipsum unde, id beatae sed optio similique maiores deleniti nisi fuga nemo officia illo odio? Beatae dolorem tempora placeat!
+        Minima deserunt nobis, ab animi nulla corrupti id quis ipsa fugit non rem nihil velit nemo deleniti architecto blanditiis eos neque laudantium fugiat nisi autem quas. Cumque libero tempora illum.
+        Necessitatibus iste commodi, ad porro similique temporibus fuga quod atque doloremque hic dignissimos facilis ullam praesentium corporis! Tenetur quasi laborum at a dignissimos ex rerum molestias! Dicta ex deserunt magnam.
+        Eveniet officia numquam, doloribus distinctio, deserunt incidunt, minus illo aspernatur nulla temporibus libero suscipit magni dolorum eius. Impedit, magnam dolorum. Cupiditate cumque quod, quae dolores mollitia doloremque quibusdam ea quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique accusantium vel expedita. Sapiente eius temporibus minus nobis fugiat tempore architecto ipsa rem voluptates eligendi, facilis, amet nostrum quaerat dolorem?
+        Nisi quam, eveniet eum sapiente vitae in possimus eligendi nobis voluptate porro saepe. Quasi voluptas fugit, sint sit eos odio quidem soluta qui hic dolor deserunt deleniti, veritatis aperiam consequatur?
+        Iusto eligendi expedita culpa alias explicabo quisquam ipsam harum quos saepe ipsum unde, id beatae sed optio similique maiores deleniti nisi fuga nemo officia illo odio? Beatae dolorem tempora placeat!
+        Minima deserunt nobis, ab animi nulla corrupti id quis ipsa fugit non rem nihil velit nemo deleniti architecto blanditiis eos neque laudantium fugiat nisi autem quas. Cumque libero tempora illum.
+        Necessitatibus iste commodi, ad porro similique temporibus fuga quod atque doloremque hic dignissimos facilis ullam praesentium corporis! Tenetur quasi laborum at a dignissimos ex rerum molestias! Dicta ex deserunt magnam.
+        Eveniet officia numquam, doloribus distinctio, deserunt incidunt, minus illo aspernatur nulla temporibus libero suscipit magni dolorum eius. Impedit, magnam dolorum. Cupiditate cumque quod, quae dolores mollitia doloremque quibusdam ea quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique accusantium vel expedita. Sapiente eius temporibus minus nobis fugiat tempore architecto ipsa rem voluptates eligendi, facilis, amet nostrum quaerat dolorem?
+        Nisi quam, eveniet eum sapiente vitae in possimus eligendi nobis voluptate porro saepe. Quasi voluptas fugit, sint sit eos odio quidem soluta qui hic dolor deserunt deleniti, veritatis aperiam consequatur?
+        Iusto eligendi expedita culpa alias explicabo quisquam ipsam harum quos saepe ipsum unde, id beatae sed optio similique maiores deleniti nisi fuga nemo officia illo odio? Beatae dolorem tempora placeat!
+        Minima deserunt nobis, ab animi nulla corrupti id quis ipsa fugit non rem nihil velit nemo deleniti architecto blanditiis eos neque laudantium fugiat nisi autem quas. Cumque libero tempora illum.
+        Necessitatibus iste commodi, ad porro similique temporibus fuga quod atque doloremque hic dignissimos facilis ullam praesentium corporis! Tenetur quasi laborum at a dignissimos ex rerum molestias! Dicta ex deserunt magnam.
+        Eveniet officia numquam, doloribus distinctio, deserunt incidunt, minus illo aspernatur nulla temporibus libero suscipit magni dolorum eius. Impedit, magnam dolorum. Cupiditate cumque quod, quae dolores mollitia doloremque quibusdam ea quos?</p>
+    </section>
+</div> -->
+
+
+
+<!-- Background image -->
+
+<!-- Background image -->
+<!-- <div
+  class="bg-image"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp');
+    height: 25vh;
+  "
+></div> -->
+<!-- Background image -->
+
+
+<!-- <figure [ngStyle]="{'background-image': 'url({$myPost?.img})', 'height':'25vh', background-color: 'red'}">
+    <img [src]="" [alt]="myPost?.title" title="myPost?.title">
+</figure> -->
+
+<!-- <div [ngStyle]="{'background-image': 'url({$myPost?.img})', 'height':'25vh', background-color: 'red'}">
+    <img [src]="" [alt]="myPost?.title" title="myPost?.title">
+</div> -->
+
+
+
+<!-- <figure [ngClass]="['background']" [ngStyle]="{'background-image': 'url(${$myPost?.img})'}">
+    <img [alt]="myPost?.title" title="myPost?.title">
+</figure> -->
+<!-- 
+background-image: url('../../../assets/img/pexels-alfonso-escalante-2533092.jpg');
+
+<figure [ngStyle]="{'background-image': 'url({$myPost?.img})', 'height':'25vh', background-color: 'red'}"> -->
+
+    <!-- <figure [ngClass]="['background']" [ngStyle]="{'background-image': 'url({{ myPost?.img }})'}">
+        <img [alt]="myPost?.title" [title]="myPost?.title">
+    </figure> -->
+
+   

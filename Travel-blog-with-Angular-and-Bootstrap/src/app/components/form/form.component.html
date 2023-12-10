@@ -1,4 +1,66 @@
-<p>form works!</p>
 
-<!-- Este componente representa un formulario con los diferentes campos del modelo Post.Cuando pulsemos el botón enviar, el formulario debe mandar al servicio la información
-del nuevo Post para que se almacene junto a los demás, previamente de haberlo validado.-->
+<div class="container">
+    <form class="d-flex flex-column" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label class="fw-bold d-block mb-2 w-25" for="title">Título</label>
+            <input class="mb-3 w-75" id="title" name="title" type="text" formControlName="name">
+        </div>
+        <div class="field">
+            <label class="fw-bold d-block mb-2" for="text">Texto del post</label>
+            <input class="mb-3 w-75" id="text" name="text" type="textarea" formControlName="text">
+        </div>
+
+        <div class="field">
+            <label class="fw-bold d-block mb-2" for="excerpt">Resumen</label>
+            <input class="mb-3 w-75" id="excerpt" name="excerpt" type="text" formControlName="excerpt">
+        </div> 
+
+        <div class="field">
+            <label class="fw-bold d-block mb-2" for="img">Sube la imagen principal del post</label>
+            <input class="mb-3" id="img" name="img" type="file" formControlName="img" accept=".jpg, jpeg,.png">
+        </div>
+        
+        <div class="field">
+           <!-- <app-select class="class"></app-select> -->
+        </div>
+
+        <div class="field">
+            <label class="fw-bold d-block mb-2" for="img">Fecha de publicación</label>
+            <input class="mb-3" id="date" name="date" type="date" formControlName="date" accept=".jpg, jpeg,.png">
+        </div>
+
+        <button class="btn btn-outline-primary my-3 w-25" type="submit">Crear nuevo post</button>
+
+    </form>  
+
+
+
+</div>
+
+
+<!-- Este componente representa un formulario con los diferentes campos del modelo Post.Cuando pulsemos el botón enviar, el formulario debe mandar al servicio la información del nuevo Post para que se almacene junto a los demás, previamente de haberlo validado.-->
+
+<!-- Validación de los campos -->
+<!-- Diseño responsive -->
+<!-- Se añadan los post al servicio -->
+<!-- Las categorías la pille del servicio categories -->
+
+<!-- FormComponent: formulario para crear un posts nuevo. 
+(nuevo post)*
+
+Campos: 
+- Título post
+- Texto post
+- Excerpt
+- Imagen
+- Categoría (select)
+- Fecha publicación
+
+Botón crear: evento que al hacer click desencadene un método en el componente que haga una llamada a un método del servicio agregarPost(Post) que se encargue de recibir el formulario como objeto, y haga un push en el array de posts. 
+
+Required: todos los campos son obligatorios. 
+
+Testing: validar la url (y resto de campos). -->
+
+
+s 

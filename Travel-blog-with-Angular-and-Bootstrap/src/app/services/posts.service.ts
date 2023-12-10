@@ -28,6 +28,14 @@ export class PostsService {
 
   }
 
+  newP (pNew: Post): any {
+    // console.log ('El sevicio recibe el nuevo objeto - pNew', pNew)
+    POSTS.push(pNew);
+    // console.log (POSTS)
+    return POSTS;
+
+  }
+
  
 
   // newPost(post): añadir nuevo post al array de objetos Posts. 
