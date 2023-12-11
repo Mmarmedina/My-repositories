@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../interfaces/post.interface';
 import { PostsService } from '../../services/posts.service';
+import { CategoriesService } from '../../services/categories.service';
+import { Category } from '../../interfaces/category.interface';
 
 @Component({
   selector: 'app-form',
@@ -14,26 +16,40 @@ export class FormComponent {
 
   form! : FormGroup;
   upDateArray!: Post[];
+  arrCategories: Category [];
+  extensionWrong: boolean;
 
-  constructor (private postService: PostsService) {
-    
+  constructor (private postService: PostsService, private categoriesService: CategoriesService ) {
 
-
-
+    this.arrCategories =  [];
+    this.extensionWrong = false;
   }
 
   ngOnInit(): void {
 
     this.form = new FormGroup({
 
+      // title: new FormControl('', [Validators.required, Validators.minLength(25), Validators.maxLength(130)]),
+      // text: new FormControl('', [Validators.required, Validators.minLength(300)]),
+      // excerpt: new FormControl ('', Validators.required),
+      // author: new FormControl ('', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]),
+
+      img: new FormControl('', [Validators.required]),
+      // date: new FormControl ('', Validators.required),
+      // id_category: new FormControl ('', Validators.required)
+
       title: new FormControl(''),
       text: new FormControl(''),
       excerpt: new FormControl (''),
       author: new FormControl (''),
-      img: new FormControl (''),
+      // img: new FormControl (''),
       date: new FormControl (''),
+      id_category: new FormControl ('')
       
-    })
+    },[])
+
+    this.arrCategories = this.categoriesService.getAll();
+    console.log (this.arrCategories)
 
   }
   
@@ -42,6 +58,13 @@ export class FormComponent {
     this.upDateArray = this.postService.newP(this.form.value);
     console.log (this.upDateArray)
   }
+
+  onSaveIdCategorySelected ($event: any) {
+
+
+    
+  }
+ 
 
 // Campos: 
 // - Título post

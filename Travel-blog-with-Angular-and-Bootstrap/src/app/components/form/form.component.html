@@ -3,38 +3,64 @@
     <form class="d-flex flex-column" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="field">
             <label class="fw-bold d-block mb-2 w-25" for="title">Título</label>
-            <input class="mb-3 w-75" id="title" name="title" type="text" formControlName="name">
+            <input class="mb-3 w-75" id="title" name="title" type="text" formControlName="title">
+            <p class="error"
+                *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched">Debes escribir el título del post (entre 25 y 130 caracteres)
+            </p>
+            <p class="error"
+                *ngIf="form.get('title')?.hasError('minlength') && form.get('title')?.touched">Debes escribir el título del post (entre 25 y 130 caracteres)
+            </p>
+            <p class="error"
+                *ngIf="form.get('title')?.hasError('maxlength') && form.get('title')?.touched">Debes escribir el título del post (entre 25 y 130 caracteres)
+            </p>
         </div>
         <div class="field">
             <label class="fw-bold d-block mb-2" for="text">Texto del post</label>
             <input class="mb-3 w-75" id="text" name="text" type="textarea" formControlName="text">
+            <p class="error"
+                *ngIf="form.get('text')?.hasError('required') && form.get('text')?.touched">Debes escribir el contenido el post aquí (al menos 300 caracteres)
+            </p>
+            <p class="error"
+                *ngIf="form.get('text')?.hasError('minlength') && form.get('text')?.touched">Debes escribir el título del post (entre 25 y 130 caracteres)
+            </p>
+            
         </div>
 
         <div class="field">
             <label class="fw-bold d-block mb-2" for="excerpt">Resumen</label>
             <input class="mb-3 w-75" id="excerpt" name="excerpt" type="text" formControlName="excerpt">
-        </div> 
+        </div>
+        
+        <div class="field">
+            <label class="fw-bold d-block mb-2 w-25" for="author">Autor</label>
+            <input class="mb-3 w-75" id="author" name="author" type="text" formControlName="author">
+            <p class="error"
+                *ngIf="form.get('author')?.hasError('required') && form.get('author')?.touched">Debes escribir el autor (entre 8 y 25 caracteres)
+            </p>
+            <p class="error"
+                *ngIf="form.get('author')?.hasError('minlength') && form.get('author')?.touched">Debes escribir el autor (entre 8 y 25 caracteres)
+            </p>
+            <p class="error"
+                *ngIf="form.get('author')?.hasError('maxlength') && form.get('author')?.touched">Debes escribir el autor (entre 8 y 25 caracteres)
+            </p>
+        </div>
 
         <div class="field">
             <label class="fw-bold d-block mb-2" for="img">Sube la imagen principal del post</label>
             <input class="mb-3" id="img" name="img" type="file" formControlName="img" accept=".jpg, jpeg,.png">
-        </div>
-        
+        </div>               
         <div class="field">
-           <!-- <app-select class="class"></app-select> -->
-        </div>
-
+            <label class="fw-bold d-block mb-2">Elige una categoría</label>
+            <select class="mb-3" id="id-category" name="id-category" title="category-filter" formControlName="id_category">
+                 <option name="category.title" [value]="category.id" *ngFor="let category of arrCategories">{{category.title}}</option>
+            </select>
+        </div> 
         <div class="field">
             <label class="fw-bold d-block mb-2" for="img">Fecha de publicación</label>
-            <input class="mb-3" id="date" name="date" type="date" formControlName="date" accept=".jpg, jpeg,.png">
+            <input class="mb-3" id="date" name="date" type="date" formControlName="date">
         </div>
-
-        <button class="btn btn-outline-primary my-3 w-25" type="submit">Crear nuevo post</button>
-
-    </form>  
-
-
-
+        <button class="btn btn-outline-primary my-3 w-25" type="submit" [disabled]="form.invalid">Crear nuevo post</button>
+    </form>
 </div>
 
 
@@ -62,5 +88,3 @@ Required: todos los campos son obligatorios.
 
 Testing: validar la url (y resto de campos). -->
 
-
-s 

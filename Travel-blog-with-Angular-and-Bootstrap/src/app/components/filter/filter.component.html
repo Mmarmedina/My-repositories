@@ -1,9 +1,9 @@
 <aside class="col-12">
     <label class="mb-1">Filtra por:</label>
     <select (change)="saveIdCategorySelected($event)"title="post-filter">
-        <option name="all" value="0">Todos las categorías</option>
+        <option name="all" value="0">Todas las categorías</option>
         <ng-container *ngFor="let category of arrCategories">
-            <option name = "category.title" [value]="category.id">{{category.title}}</option>
+            <option name="category.title" [value]="category.id">{{category.title}}</option>
         </ng-container>
     </select>
 </aside>
