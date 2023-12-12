@@ -17,12 +17,12 @@ export class FormComponent {
   form! : FormGroup;
   upDateArray!: Post[];
   arrCategories: Category [];
-  extensionWrong: boolean;
+  
 
   constructor (private postService: PostsService, private categoriesService: CategoriesService ) {
 
     this.arrCategories =  [];
-    this.extensionWrong = false;
+   
   }
 
   ngOnInit(): void {

@@ -1,0 +1,17 @@
+header .intro {
+    position: relative;
+}
+
+div.head {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 0.150rem solid #2b2b2b;
+}
+
+img {
+    height: 50vh;    
+}
+
+
