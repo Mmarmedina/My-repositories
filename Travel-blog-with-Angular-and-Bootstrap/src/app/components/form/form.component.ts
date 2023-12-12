@@ -33,7 +33,6 @@ export class FormComponent {
       // text: new FormControl('', [Validators.required, Validators.minLength(300)]),
       // excerpt: new FormControl ('', Validators.required),
       // author: new FormControl ('', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]),
-
       img: new FormControl('', [Validators.required]),
       // date: new FormControl ('', Validators.required),
       // id_category: new FormControl ('', Validators.required)

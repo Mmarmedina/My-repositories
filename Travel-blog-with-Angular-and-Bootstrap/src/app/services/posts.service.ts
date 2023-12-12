@@ -23,7 +23,7 @@ export class PostsService {
 
   getById (pId: number): Post | undefined {
 
-    const post = POSTS.find (post => post.id = pId);
+    const post = POSTS.find (post => post.id === pId);
     return post;
 
   }

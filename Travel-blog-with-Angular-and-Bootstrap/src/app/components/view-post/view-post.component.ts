@@ -42,7 +42,7 @@ export class ViewPostComponent {
     this.activatedRoute.params.subscribe((params:any) => {
       const id = parseInt(params.idpost)
       this.myPost = this.postsService.getById(id);
-      console.log (this.myPost)    
+      console.log (this.myPost)   
 
     })
   }

@@ -1,6 +1,6 @@
 <aside class="col-12">
-    <label class="mb-1">Filtra por:</label>
-    <select (change)="saveIdCategorySelected($event)"title="post-filter">
+    <label class="mb-1 d-block">Filtra por:</label>
+    <select class="form-select" (change)="saveIdCategorySelected($event)"title="post-filter">
         <option name="all" value="0">Todas las categorías</option>
         <ng-container *ngFor="let category of arrCategories">
             <option name="category.title" [value]="category.id">{{category.title}}</option>
