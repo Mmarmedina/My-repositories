@@ -13,11 +13,14 @@ export class CategoriesService {
   // getAllCategories(): Disponer de un selector de categorías que nos permitan filtrar por categoría. Este se llenará desde una array de categorías del servicio el servicio a través de un método. Esto es que los option del select los coge del servicio categorías?
 
   getAll (): any {
-
-    return CATEGORIES; 
-
-
+    return CATEGORIES;
   }
+
+  getTitle (pId: number): any {
+    const category = CATEGORIES.find (category => category.id === pId);
+    return category;
+  }
+
 }
 
 

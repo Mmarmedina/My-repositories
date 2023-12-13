@@ -1,38 +1,60 @@
 <app-header></app-header>
-<section class="container">
+
+<!-- 1ª versión -->
+<!-- <section class="container">
     <div class="row">
-        <!-- Filtros -->
         <div class="col-12 col-md-3">
-            <!-- Filtro -->
             <div class="row">
                 <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
-                <!-- <aside class="col-12">
-                    <label class="mb-1">Filtra por:</label>
-                    <select title="post-filter">
-                        <option name = "all" value = "1">Todos las categorías</option>
-                        <ng-container *ngFor="let category of arrCategories">
-                            <option name = "category.title" [value] = "category.id">{{category.title}}</option>
-                        </ng-container>
-                    </select>
-                </aside> -->
             </div>   
         </div>
-
-        <!-- lista de posts -->
         <div class="col-12 col-md-9">
             <div class="row g-4">
                 <article class="col-6 col-md-4" *ngFor="let post of arrPosts">
                    <app-thumbnail-post [post]="post"></app-thumbnail-post>
-                    <!-- <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" [src]= "post.img" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">{{post.title}}</h5>
-                          <p class="card-title">{{post.excerpt}}</p>
-                          <a href="#" class="btn btn-primary">Ver más</a>
-                        </div>
-                    </div> -->
                 </article>
             </div>
         </div>
     </div>
-</section>  
+</section>  -->
+
+<!-- Segunda versión -->
+
+<!-- <div class="container">
+    <h2 class="text-center fw-bold">Los mejores destinos para viajar en 2024</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="../../../assets/img/pexels-alfonso-escalante-2533092.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Título del post</h5>
+                  <p class="class-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae corporis praesentium ex laboriosam reprehenderit dolores animi omnis saepe eius, porro nisi laudantium totam temporibus soluta numquam qui nesciunt voluptatem non!</p>
+                </div>
+                <div class="d-flex justify-content-around mb-5">
+                    <button class="btn btn-primary">Ver más</button>
+                </div>
+              </div>
+        </div>        
+    </div>
+</div> -->
+
+
+<!--  -->
+
+<section class="container">
+    <h2 class="text-center fw-bold py-5">Los mejores destinos para viajar en 2024</h2>
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="row">
+                <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
+            </div>   
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="row g-4">
+                <article class="col-6 col-md-4" *ngFor="let post of arrPosts">
+                   <app-thumbnail-post [post]="post"></app-thumbnail-post>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

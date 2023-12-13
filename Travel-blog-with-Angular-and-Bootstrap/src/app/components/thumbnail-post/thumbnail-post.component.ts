@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../../interfaces/post.interface';
+import { CategoriesService } from '../../services/categories.service';
+import { Category } from '../../interfaces/category.interface';
 
 @Component({
   selector: 'app-thumbnail-post',
@@ -9,8 +11,9 @@ import { Post } from '../../interfaces/post.interface';
 export class ThumbnailPostComponent {
 
   @Input () post: Post;
+  category: Category;
 
-  constructor() {
+  constructor(private categoriesService: CategoriesService) {
 
     this.post = {
       id: 0,
@@ -22,5 +25,19 @@ export class ThumbnailPostComponent {
       date: "",
       id_category: 0,
     }
+
+    this.category = {
+      id: 0,
+      title: "",
+    }
+
   }
+
+  ngOnInit(): void {
+
+    this.category = this.categoriesService.getTitle
+
+  }
+
+
 }

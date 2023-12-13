@@ -77,7 +77,7 @@ export const POSTS: Post [] =  [
       text: 'Un tranquilo viaje a través de los pintorescos paisajes rurales de la campiña inglesa. Descubre encantadores pueblos, extensos campos verdes y antiguas casas de campo. Disfruta de la serenidad del entorno y conéctate con la auténtica vida rural.',
       excerpt: 'Un tranquilo viaje a través de los pintorescos paisajes rurales de la campiña inglesa.',
       author: 'Amante de la Naturaleza',
-      img: 'https://images.unsplash.com/photo-1545350089-47b3d117a92c?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      img: 'https://images.unsplash.com/photo-1642285107519-1159cd5904ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       date: '15-02-2024',
       id_category: 4
     },
@@ -93,7 +93,7 @@ export const POSTS: Post [] =  [
     },
     {
       id: 10,
-      title: 'Vibrante Festival de Música en Coachella',
+      title: 'Vibrante Festival de música en Coachella',
       text: 'Sumérgete en la energía vibrante del famoso Festival de Música de Coachella. Descubre actuaciones emocionantes, arte visual impresionante y la diversidad de la cultura festivalera. Un viaje que te llevará a través de la música y la creatividad en el desierto de California. Cum a nemo harum laudantium atque ratione qui, aliquam aperiam culpa maxime? Amet, odit! Harum voluptatem laudantium aperiam atque eos, a odio commodi provident officia neque facere doloremque soluta, aliquid officiis possimus recusandae incidunt id dolores! Impedit, repellendus! Repellendus illo mollitia officia facere eligendi! Quasi nemo consequuntur odit veniam quae. Impedit aperiam consequuntur eveniet consectetur atque libero veniam repudiandae enim, facilis fugiat ratione quibusdam optio assumenda nobis quaerat ab iure. Inventore labore tenetur perferendi.',
       excerpt: 'Sumérgete en la energía vibrante del famoso Festival de Música de Coachella.',
       author: 'Melómano Viajero',

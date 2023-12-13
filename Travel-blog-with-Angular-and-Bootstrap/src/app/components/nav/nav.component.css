@@ -1,9 +1,19 @@
 
 i {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: hsl(216, 74%, 20%);
+    cursor: pointer;
+    text-decoration: none;
 }
 
-* {
-    border: 0.5px solid black;
+a.menu {
+    border-bottom: 2px solid transparent; 
+    transition: border-bottom-color 0.3s;
 }
+  
+a.menu:hover {
+    border-bottom-color: hsl(216, 74%, 20%);
+}
+
+
+
