@@ -7,7 +7,7 @@ export const POSTS: Post [] =  [
       text: 'Un viaje inolvidable por la Ciudad de la Luz. París, la capital de Francia, es una ciudad icónica llena de historia, arte y romance. Desde la majestuosidad de la Torre Eiffel hasta la serenidad de los Jardines de Luxemburgo, cada rincón de París ofrece una experiencia única para los viajeros. Pasear por las calles empedradas del Barrio Latino o explorar el Louvre, hogar de invaluables obras maestras, son solo algunas de las muchas actividades que te esperan en esta ciudad fascinante.',
       excerpt: 'Un viaje inolvidable por la Ciudad de la Luz.',
       author: 'Viajero Aventurero',
-      img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      img: 'https://images.unsplash.com/photo-1431274172761-fca41d930114?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       date: '01-01-2024',
       id_category: 1
     },
@@ -17,7 +17,7 @@ export const POSTS: Post [] =  [
       text: 'Una experiencia única en las alturas de los Andes. Machu Picchu, la antigua ciudad inca, es uno de los destinos más impresionantes del mundo. Subir por el Camino Inca y llegar a este sitio arqueológico es un logro emocionante. Las vistas panorámicas de las montañas y la mística atmósfera de Machu Picchu te transportan a otra época. En este viaje, descubrirás la rica historia de los incas y la belleza natural que rodea este sitio excepcional.',
       excerpt: 'Una experiencia única en las alturas de los Andes.',
       author: 'Explorador Intrépido',
-      img: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      img: 'https://images.unsplash.com/photo-1548820650-643ad1d637b5?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       date: '01-11-2024',
       id_category: 2
     },
@@ -37,7 +37,7 @@ export const POSTS: Post [] =  [
       text: 'Explorando la belleza salvaje de la Patagonia. La Patagonia, con sus vastos paisajes y naturaleza virgen, es el sueño de cualquier amante de la aventura. Desde el Parque Nacional Torres del Paine hasta los glaciares imponentes, este rincón del mundo te dejará sin aliento. En este relato, compartiré mis experiencias al caminar por senderos remotos, acampar bajo un cielo estrellado y maravillarme con la diversidad de la fauna patagónica. Únete a mí en esta emocionante aventura en el extremo sur de Sudamérica.',
       excerpt: 'Explorando la belleza salvaje de la Patagonia',
       author: 'Nómada Patagónico',
-      img: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      img: 'https://plus.unsplash.com/premium_photo-1681486513746-3f1d94cf6363?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       date: '11-03-2024',
       id_category: 2
     },

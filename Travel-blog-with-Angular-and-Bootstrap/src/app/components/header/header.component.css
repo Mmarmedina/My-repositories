@@ -7,7 +7,7 @@ div.head {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-bottom: 0.150rem solid #2b2b2b;
+    border-bottom: 0.150rem solid var(--color-background-site)
 }
 
 img {

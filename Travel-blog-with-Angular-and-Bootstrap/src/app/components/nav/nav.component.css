@@ -1,19 +1,33 @@
 
-i {
-    font-size: 1.2rem;
-    color: hsl(216, 74%, 20%);
-    cursor: pointer;
-    text-decoration: none;
-}
+a.menu-active{
+    border-bottom-color: var(--secondary-color-yellow);
+    border-bottom: 2px solid var(--secondary-color-yellow);
+}  
 
-a.menu {
+a.menu-inactive {
     border-bottom: 2px solid transparent; 
     transition: border-bottom-color 0.3s;
+    color: var(--main-color-blue)
 }
   
-a.menu:hover {
-    border-bottom-color: hsl(216, 74%, 20%);
+a.menu-inactive:hover {
+    border-bottom-color: var(--secondary-color-yellow);
 }
+
+i {
+    font-size: 1.2rem;
+    color: var(--main-color-blue);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.75s 0 ease;
+}
+
+i:hover {
+    color: var(--secondary-color-yellow)
+}
+
+
+
 
 
 

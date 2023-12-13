@@ -4,6 +4,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
+:root {
+    --color-background-site: hsl(0, 0%, 20%);
+    --main-color-blue: hsl(216, 74%, 20%);
+    --secondary-color-yellow: hsl(44, 99%, 73%);
+    --secondary-color-white: hsl(0, 0%, 100%);
+}
+
 
 body {
     font-family: 'Merriweather', sans-serif !important;

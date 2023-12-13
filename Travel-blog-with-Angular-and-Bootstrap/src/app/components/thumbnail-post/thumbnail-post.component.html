@@ -1,24 +1,11 @@
-
-<!-- Primera card -->
-<!-- <div class="card" style="width: 18rem;">
-    <img class="card-img-top" [src]= "post.img" alt="Card image cap">
-    <div class="card-body">
-      <h2 class="card-title h5">{{post.title}}</h2>
-      <p class="card-title m0">{{post.excerpt}}</p>
-      <a href="#" class="btn btn-primary" [routerLink]="['/posts/', post.id]">Ver más</a>
-    </div>
-</div> -->
-
-
-<div class="card">
-  <img class="card-img-top" [src]="post.img" alt="Thumbnail-post">
+<div class="card mx-3">
+  <a href="" class="" target="_blank" [routerLink]="['/posts/', post.id]"><img class="card-img-top" [src]="post.img" alt="Thumbnail-post"></a>
   <div class="card-body pb-0">
-    <h5 class="card-title text">{{post.title}}</h5>
-    <p class="class-text">{{post.excerpt}}</p>
+    <a class="card-title text" [routerLink]="['/posts/', post.id]">{{post.title}}</a>
+    <p>{{post.excerpt}}</p>
   </div>
   <div class="d-flex justify-start mb-5 ms-4">
-    <a href="#" class="btn btn-primary text-white text-" [routerLink]="['/posts/', post.id]">{{post.id_category}}</a>
+    <p href="#" class="btn btn-outline-primary btn-sm">{{category.title}}</p>
+    <!-- <a href="#" class="btn btn-outline-primary btn-sm text-" [routerLink]="['/posts/', post.id]">{{category.title}}</a> -->
   </div>
 </div>
-
-<!-- Llamada al servicio de categorías: metodo get all. -->

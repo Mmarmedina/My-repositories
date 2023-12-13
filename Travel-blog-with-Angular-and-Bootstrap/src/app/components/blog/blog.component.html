@@ -1,47 +1,43 @@
 <app-header></app-header>
 
-<!-- 1ª versión -->
-<!-- <section class="container">
+<section class="container">
+    <h2 class="text-center fw-bold pt-5">Los mejores destinos para viajar en 2024</h2>
+    <h3 class="text-center h5 pt-2">Busca tu tipo de viaje favorito</h3>
     <div class="row">
-        <div class="col-12 col-md-3">
-            <div class="row">
-                <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
-            </div>   
+        <div class="col-4 mb-4">
+            <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
         </div>
-        <div class="col-12 col-md-9">
+    </div>
+        <div class="row g-4">
+            <article class="col-xl-4 col-md-6 col-sm-12" *ngFor="let post of arrPosts">
+                <app-thumbnail-post [post]="post"></app-thumbnail-post>
+            </article>
+        </div>
+    </section>
+
+
+
+<!-- <section class="container">
+    <h2 class="text-center fw-bold pt-5">Los mejores destinos para viajar en 2024</h2>
+    <h3 class="text-center h5 pt-2">Busca tu tipo de viaje favorito</h3>
+    <div class="row">
+        <div class="col-4 mb-4">
+            <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <div class="row g-4">
-                <article class="col-6 col-md-4" *ngFor="let post of arrPosts">
+                <article class="col-4 col-md-6" *ngFor="let post of arrPosts">
                    <app-thumbnail-post [post]="post"></app-thumbnail-post>
                 </article>
             </div>
         </div>
     </div>
-</section>  -->
-
-<!-- Segunda versión -->
-
-<!-- <div class="container">
-    <h2 class="text-center fw-bold">Los mejores destinos para viajar en 2024</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
-        <div class="col">
-            <div class="card">
-                <img class="card-img-top" src="../../../assets/img/pexels-alfonso-escalante-2533092.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Título del post</h5>
-                  <p class="class-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae corporis praesentium ex laboriosam reprehenderit dolores animi omnis saepe eius, porro nisi laudantium totam temporibus soluta numquam qui nesciunt voluptatem non!</p>
-                </div>
-                <div class="d-flex justify-content-around mb-5">
-                    <button class="btn btn-primary">Ver más</button>
-                </div>
-              </div>
-        </div>        
-    </div>
-</div> -->
+</section> -->
 
 
-<!--  -->
-
-<section class="container">
+<!-- <section class="container">
     <h2 class="text-center fw-bold py-5">Los mejores destinos para viajar en 2024</h2>
     <div class="row">
         <div class="col-12 col-md-3">
@@ -57,4 +53,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
