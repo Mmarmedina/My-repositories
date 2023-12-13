@@ -1,6 +1,5 @@
-
+/* 
 a.menu-active{
-    border-bottom-color: var(--secondary-color-yellow);
     border-bottom: 2px solid var(--secondary-color-yellow);
 }  
 
@@ -12,7 +11,7 @@ a.menu-inactive {
   
 a.menu-inactive:hover {
     border-bottom-color: var(--secondary-color-yellow);
-}
+} */
 
 i {
     font-size: 1.2rem;
@@ -25,6 +24,13 @@ i {
 i:hover {
     color: var(--secondary-color-yellow)
 }
+
+@media (max-width: 1024px){
+    ul.navbar-nav.ml-auto {
+        display: none;
+    }
+}
+
 
 
 
