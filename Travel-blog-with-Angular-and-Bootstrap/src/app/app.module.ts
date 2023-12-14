@@ -13,6 +13,7 @@ import { ThumbnailPostComponent } from './components/thumbnail-post/thumbnail-po
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { PostsCategoryComponent } from './components/posts-category/posts-category.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,12 +27,13 @@ import { PostsCategoryComponent } from './components/posts-category/posts-catego
     FooterComponent,
     ThumbnailPostComponent,
     HeaderComponent,
-    PostsCategoryComponent
+    PostsCategoryComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BlogComponent } from './components/blog/blog.component'; 
-import { FilterComponent } from './components/filter/filter.component';
-import { Form } from '@angular/forms';
+// import { FilterComponent } from './components/filter/filter.component';
+// import { Form } from '@angular/forms';
 import { ViewPostComponent } from './components/view-post/view-post.component';
 import { FormComponent } from './components/form/form.component';
 import { PostsCategoryComponent } from './components/posts-category/posts-category.component';

@@ -15,10 +15,8 @@ export class PostsService {
   }
   
   getPostByIdCategory (cat: number): Post[] {
-
     const posts = POSTS.filter(post => post.id_category === cat);
-    return posts
-   
+    return posts   
   }
 
   getById (pId: number): Post | undefined {
@@ -26,10 +24,8 @@ export class PostsService {
     return post;
   }
 
-  newP (pNew: Post): any {
-    // console.log ('El sevicio recibe el nuevo objeto - pNew', pNew)
-    POSTS.push(pNew);
-    // console.log (POSTS)
+  newP (pNew: Post): any {    
+    POSTS.push(pNew);    
     return POSTS;
   }
   
