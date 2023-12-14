@@ -1,0 +1,17 @@
+.footer {
+    background-color: var(--main-color-blue);
+    color: var(--secondary-color-white);
+}
+
+div p:nth-child(1){
+    color: var(--secondary-color-yellow);
+}
+
+div p:nth-child(1):hover {
+    color: var(--secondary-color-white);
+    cursor: pointer;   
+}
+
+a:hover {
+    color: var(--secondary-color-yellow);
+}

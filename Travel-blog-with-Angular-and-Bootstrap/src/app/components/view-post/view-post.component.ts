@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Post } from '../../interfaces/post.interface';
+import { Category } from '../../interfaces/category.interface';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'app-view-post',
@@ -11,42 +13,36 @@ import { PostsService } from '../../services/posts.service';
 export class ViewPostComponent {
 
   myPost: Post | undefined;
-
-  
-  background = {
-    // 'background': 'url(' + this.myPost?.img + ')',
-    'height': '25vh',
-    'background-color': '#003B95'
-  }
-
+  category: Category;
 
   constructor (
     private activatedRoute: ActivatedRoute,
-    private postsService: PostsService){
-    this.myPost = {
+    private postsService: PostsService,
+    private categoriesService: CategoriesService){
+      this.myPost = {
+          id: 0,
+          title: "",
+          text: "",
+          excerpt: "",        
+          author: "",
+          img: "",
+          date: "",
+          id_category: 0
+      }
 
+      this.category = {
         id: 0,
         title: "",
-        text: "",
-        excerpt: "",        
-        author: "",
-        img: "",
-        date: "",
-        id_category: 0
-
-    }
-    
+      }
   }
 
   ngOnInit (): void {
     this.activatedRoute.params.subscribe((params:any) => {
       const id = parseInt(params.idpost)
-      this.myPost = this.postsService.getById(id);
-      console.log (this.myPost)   
+      this.myPost = this.postsService.getById(id);      
 
+      const idCategory = this.myPost?.id_category;    
+      this.category = this.categoriesService.getTitle(idCategory);    
     })
   }
-
-
-
 }

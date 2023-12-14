@@ -1,19 +1,4 @@
-/* 
-a.menu-active{
-    border-bottom: 2px solid var(--secondary-color-yellow);
-}  
-
-a.menu-inactive {
-    border-bottom: 2px solid transparent; 
-    transition: border-bottom-color 0.3s;
-    color: var(--main-color-blue)
-}
-  
-a.menu-inactive:hover {
-    border-bottom-color: var(--secondary-color-yellow);
-} */
-
-i {
+a, i {
     font-size: 1.2rem;
     color: var(--main-color-blue);
     cursor: pointer;
@@ -21,13 +6,25 @@ i {
     transition: color 0.75s 0 ease;
 }
 
-i:hover {
+a:hover, i:hover {
     color: var(--secondary-color-yellow)
+}
+
+.navbar-toggler-icon {
+    font-size: 0.3rem;
 }
 
 @media (max-width: 1024px){
     ul.navbar-nav.ml-auto {
         display: none;
+    }
+}
+
+@media (max-width: 991px){
+    a, i {
+        font-size: 0.8rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
     }
 }
 

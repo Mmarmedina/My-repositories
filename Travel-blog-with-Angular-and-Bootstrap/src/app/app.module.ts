@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ThumbnailPostComponent } from './components/thumbnail-post/thumbnail-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
+import { PostsCategoryComponent } from './components/posts-category/posts-category.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
     NavComponent,
     FooterComponent,
     ThumbnailPostComponent,
-    HeaderComponent
+    HeaderComponent,
+    PostsCategoryComponent
   ],
   imports: [
     BrowserModule,

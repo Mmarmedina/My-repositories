@@ -22,10 +22,8 @@ export class PostsService {
   }
 
   getById (pId: number): Post | undefined {
-
     const post = POSTS.find (post => post.id === pId);
     return post;
-
   }
 
   newP (pNew: Post): any {
@@ -33,15 +31,6 @@ export class PostsService {
     POSTS.push(pNew);
     // console.log (POSTS)
     return POSTS;
-
   }
-
- 
-
-  // newPost(post): añadir nuevo post al array de objetos Posts. 
-
-  // getPostsByCategoria(cat)
-
-
   
 }

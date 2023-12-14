@@ -8,8 +8,8 @@
             <app-filter (filter)="filterPostByCateogy($event)"></app-filter>
         </div>
     </div>
-    <div class="row g-4">
-        <article class="col-xl-4 col-md-6 col-sm-12" *ngFor="let post of arrPosts">
+    <div class="row g-4 mb-5">
+        <article class="col-xl-4 col-sm-12 col-md-6" *ngFor="let post of arrPosts">
             <app-thumbnail-post [post]="post"></app-thumbnail-post>
         </article>
     </div>
