@@ -19,8 +19,7 @@ export class CategoriesService {
   }
 
   get (pTitle: string): any {
-    const category = CATEGORIES.find (category => category.title.toLowerCase() === pTitle);
-    console.log (category);
+    const category = CATEGORIES.find (category => category.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === pTitle);
     return category;
   }
 }

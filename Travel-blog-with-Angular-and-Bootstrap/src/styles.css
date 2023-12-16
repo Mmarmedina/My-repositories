@@ -9,6 +9,7 @@
     --main-color-blue: hsl(216, 74%, 20%);
     --secondary-color-yellow: hsl(44, 98%, 55%);
     --secondary-color-white: hsl(0, 0%, 100%);
+    --secondary-color-grey: hwb(0 88% 11% / 0.56); 
 }
 
 

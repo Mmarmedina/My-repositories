@@ -8,7 +8,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Un viaje inolvidable por la Ciudad de la Luz.',
       author: 'Viajero Aventurero',
       img: 'https://images.unsplash.com/photo-1431274172761-fca41d930114?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '01-01-2024',
+      date: '01-01-2023',
       id_category: 1
     },
     {
@@ -18,7 +18,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Una experiencia única en las alturas de los Andes.',
       author: 'Explorador Intrépido',
       img: 'https://images.unsplash.com/photo-1548820650-643ad1d637b5?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '01-11-2024',
+      date: '01-11-2023',
       id_category: 2
     },
     {
@@ -28,7 +28,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Relajándose en las hermosas playas tailandesas.',
       author: 'Amante del Sol',
       img: 'https://plus.unsplash.com/premium_photo-1681582960531-7b5de57fb276?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dv',
-      date: '01-05-2024',
+      date: '01-05-2023',
       id_category: 3
     },
     {
@@ -38,7 +38,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Explorando la belleza salvaje de la Patagonia.',
       author: 'Nómada Patagónico',
       img: 'https://plus.unsplash.com/premium_photo-1681486513746-3f1d94cf6363?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '11-03-2024',
+      date: '11-03-2023',
       id_category: 2
     },
     {
@@ -48,7 +48,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Sumergiéndose en la rica historia de Kioto, Japón.',
       author: 'Historiador Viajero',
       img: 'https://images.unsplash.com/photo-1558862107-d49ef2a04d72?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '15-06-2024',
+      date: '15-06-2023',
       id_category: 1
     },
     {
@@ -58,7 +58,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Explorando los vastos cañones y paisajes impresionantes del Gran Cañón en Arizona.',
       author: 'Aventurero del Gran Cañón',
       img: 'https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '15-08-2024',
+      date: '15-08-2023',
       id_category: 2
     },
     {
@@ -68,7 +68,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Adentrándome en la densa selva amazónica, una de las maravillas naturales más sorprendentes de la Tierra.',
       author: 'Explorador de la Amazonía',
       img: 'https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '14-06-2024',
+      date: '14-06-2023',
       id_category: 4
     },
     {
@@ -78,7 +78,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Un tranquilo viaje a través de los pintorescos paisajes rurales de la campiña inglesa.',
       author: 'Amante de la Naturaleza',
       img: 'https://images.unsplash.com/photo-1642285107519-1159cd5904ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '15-02-2024',
+      date: '15-02-2023',
       id_category: 4
     },
     {
@@ -88,7 +88,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Exploración de las tierras altas escocesas, donde las montañas escarpadas y los lagos pintorescos te sumergen en la belleza natural.',
       author: 'Explorador Rural',
       img: 'https://images.unsplash.com/photo-1589489873423-d1745278a8f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '20-06-2024',
+      date: '20-06-2023',
       id_category: 4
     },
     {
@@ -98,7 +98,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Sumérgete en la energía vibrante del famoso Festival de Música de Coachella.',
       author: 'Melómano Viajero',
       img: 'https://images.unsplash.com/photo-1612443016610-00c5fa0ec439?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '15-06-2025',
+      date: '15-06-2023',
       id_category: 5
     },
     {
@@ -108,7 +108,7 @@ export const POSTS: Post [] =  [
       excerpt: 'Sumérgete en la colorida y animada atmósfera del Carnaval de Río de Janeiro.',
       author: 'Explorador Festivo',
       img: 'https://plus.unsplash.com/premium_photo-1701203333206-40886983dff3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      date: '15-07-2024',
+      date: '15-07-2023',
       id_category: 5
     }
 ]

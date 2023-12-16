@@ -1,21 +1,11 @@
 <app-header></app-header>
 
 <section class="container">
-    <h2 class="text-center fw-bold pt-5 pb-1">Elige entre todos estos super destinos</h2>    
-    <article *ngFor="let category of allCategories">
-        <p class="text-center h5 fw-bold mb-5 btn btn-outline-warning">{{category.title}}</p>
-    </article>
- 
+    <h2 class="text-center fw-bold pt-4 pb-1 px-1 h3">{{category.title}}</h2>
+    <h2 class="text-center fw-bold h5 pb-4 px-2">Elige tu destino favorito</h2>        
     <div class="row g-4 mb-5">
-        <article class="col-xl-4 col-sm-12 col-md-6" *ngFor="let category of allCategories">
+        <article class="col-xl-4 col-sm-12 col-md-6" *ngFor="let post of postsCategory">
             <app-thumbnail-post [post]="post"></app-thumbnail-post>
         </article>
     </div>
 </section>
-
-
-<!-- <div class="d-flex justify-content-center gap-5 mt-3">
-    <article *ngFor="let category of allCategories">
-        <button class="text-center h5 fw-bold mb-5 btn btn-outline-warning">{{category.title}}</button>
-    </article>
-</div>     -->
