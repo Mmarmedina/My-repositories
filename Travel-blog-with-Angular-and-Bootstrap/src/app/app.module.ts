@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { PostsCategoryComponent } from './components/posts-category/posts-category.component';
 import { FormsModule } from '@angular/forms';
+import { StickyButtonComponent } from './components/sticky-button/sticky-button.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ThumbnailPostComponent,
     HeaderComponent,
-    PostsCategoryComponent    
+    PostsCategoryComponent,
+    StickyButtonComponent    
   ],
   imports: [
     BrowserModule,

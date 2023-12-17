@@ -8,7 +8,6 @@ import { PostsService } from '../../services/posts.service';
   styleUrl: './blog.component.css'
 })
 
-
 export class BlogComponent {
 
   arrPosts: Post[];

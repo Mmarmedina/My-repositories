@@ -1,8 +1,7 @@
 
 <header>
     <h1 class="text-center my-5 fw-bold">Crear un nuevo post</h1>
-</header> 
-
+</header>
 <section class="container w-50 mb-5">
     <form class="d-flex flex-column p-5" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="field mb-3">
@@ -17,26 +16,25 @@
             <p class="error"
             *ngIf="checkError ('title', 'maxlength')">Debes escribir el título del post (entre 25 y 130 caracteres).
             </p>
-        </div>        
+        </div>
         <div class="field mb-3">
             <label class="fw-bold d-block mb-2" for="text">Texto del post</label>
-            <input class="mb-2 p-2 w-100 height-input" id="text" name="text" type="textarea" formControlName="text">
+            <textarea class="mb-2 p-2 w-100 height-input" id="text" name="text" formControlName="text"></textarea>
             <p class="error"
                 *ngIf="checkError ('text', 'required')">Debes escribir el contenido el post aquí (al menos 300 caracteres).
             </p>
             <p class="error"
-                *ngIf="checkError ('text', 'minlength')">Debes escribir el contenido el post aquí (al menos 300 caracteres).
-            </p>            
+                *ngIf="checkError ('text', 'minlength')">Debes escribir el contenido el post aquí (al menos 300 caracteres).                        
         </div>
         <div class="field mb-3">
             <label class="fw-bold d-block mb-2" for="excerpt">Resumen</label>
-            <input class="mb-2 p-2 w-100" id="excerpt" name="excerpt" type="text" formControlName="excerpt">
+            <textarea class="mb-2 p-2 w-100" id="excerpt" name="excerpt" formControlName="excerpt"></textarea>
             <p class="error"
                 *ngIf="checkError ('excerpt', 'required')">Debes un resumen del post aquí (al menos 30 caracteres). Se mostrará junto con la imagen destacada en la previsualización del post.
             </p>
             <p class="error"
                 *ngIf="checkError ('excerpt', 'minlength')">Debes escribir un breve resumen del post (al menos 30 caracteres). 
-            </p>
+            </p>            
         </div>        
         <div class="field mb-3">
             <label class="fw-bold d-block mb-2 w-25" for="author">Autor</label>

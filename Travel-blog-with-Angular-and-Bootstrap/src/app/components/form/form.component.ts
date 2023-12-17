@@ -5,7 +5,6 @@ import { Category } from '../../interfaces/category.interface';
 import { PostsService } from '../../services/posts.service';
 import { CategoriesService } from '../../services/categories.service';
 
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -16,8 +15,7 @@ export class FormComponent {
 
   form! : FormGroup;  
   arrCategories: Category [];
-  upDateArray!: Post[];
-   
+  upDateArray!: Post[];   
 
   constructor (
     private postService: PostsService, 
@@ -49,7 +47,7 @@ export class FormComponent {
   
   onSubmit (): void {
     this.upDateArray = this.postService.newP(this.form.value);
-    console.log (this.upDateArray); 
+    console.log (this.upDateArray);
   }
   
 }

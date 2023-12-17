@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../../services/categories.service';
-import { Category } from '../../interfaces/category.interface';
 import { PostsService } from '../../services/posts.service';
+import { Category } from '../../interfaces/category.interface';
 import { Post } from '../../interfaces/post.interface';
-
 
 @Component({
   selector: 'app-posts-category',

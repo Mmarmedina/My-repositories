@@ -110,6 +110,26 @@ export const POSTS: Post [] =  [
       img: 'https://plus.unsplash.com/premium_photo-1701203333206-40886983dff3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       date: '15-07-2023',
       id_category: 5
+    },
+    {
+      id: 13,
+      title: 'Caminando por Nueva York',
+      text: 'Explora la ciudad que nunca duerme, desde Times Square hasta Central Park. Nueva York ofrece una experiencia única en cada rincón.',
+      excerpt: 'Explora la ciudad que nunca duerme, desde Times Square hasta Central Park.',
+      author: 'Caminante Urbano',
+      img: 'https://images.unsplash.com/photo-1536031696538-924fe11c7037?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      date: '05-12-2023',
+      id_category: 1
+    },
+    {
+      id: 14,
+      title: 'Explorando Barcelona',
+      text: 'Descubre la vibrante ciudad de Barcelona, llena de arquitectura modernista, playas soleadas y una escena culinaria emocionante.',
+      excerpt: 'Descubre la vibrante ciudad de Barcelona.',
+      author: 'Aventurero en Barcelona',
+      img: 'https://images.unsplash.com/photo-1547482802-54e4e97a1637?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      date: '10-09-2023',
+      id_category: 1
     }
 ]
 

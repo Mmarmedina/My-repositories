@@ -39,8 +39,7 @@ export class ViewPostComponent {
   ngOnInit (): void {
     this.activatedRoute.params.subscribe((params:any) => {
       const id = parseInt(params.idpost)
-      this.myPost = this.postsService.getById(id);      
-
+      this.myPost = this.postsService.getById(id);  
       const idCategory = this.myPost?.id_category;    
       this.category = this.categoriesService.getTitle(idCategory);    
     })

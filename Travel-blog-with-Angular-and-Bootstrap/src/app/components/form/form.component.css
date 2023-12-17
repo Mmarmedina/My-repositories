@@ -8,7 +8,7 @@ label {
     font-family: Karla;
 }
 
-input, select {
+input, select, textarea {
     border-radius: 2rem;
     border: transparent;
     background-color: var(--secondary-color-grey);
@@ -35,7 +35,3 @@ input.height-input {
 .btn-outline-warning {
     border-radius: 30rem;
 }
-
-/* * {
-    border: 0.5px solid black;
-} */
