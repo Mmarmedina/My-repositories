@@ -45,6 +45,7 @@ export class FormComponent {
     }
   }
   
+  // Darle a enviar hace una llamada al servicio para que añada el post, y éste devuelve arry post actualizado.
   onSubmit (): void {
     this.upDateArray = this.postService.newP(this.form.value);
     console.log (this.upDateArray);

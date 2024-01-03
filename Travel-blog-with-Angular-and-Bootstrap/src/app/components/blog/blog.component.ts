@@ -16,10 +16,12 @@ export class BlogComponent {
     this.arrPosts = [];
   }
 
+  // Cargar todos los post al renderizar la página.
   ngOnInit(): void {
     this.arrPosts = this.postService.getAll();
   }
 
+  // Llama al servicio de categorías y devuelve array post todos los post de la categoría seleccionada en el filtro.
   filterPostByCateogy(cat: number): any {
     this.arrPosts = this.postService.getPostByIdCategory(cat);
 

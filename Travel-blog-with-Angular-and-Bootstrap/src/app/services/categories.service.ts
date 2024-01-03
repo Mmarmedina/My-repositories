@@ -6,19 +6,23 @@ import { Category } from '../interfaces/category.interface';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CategoriesService {
   constructor() { } 
 
-  getAll (): any {
+  // Aquí tenía puesto any
+  getAll (): Category [] {
     return CATEGORIES;
   }
 
-  getTitle (pId: number | undefined): any {
+  // Aquí tenía puesto any
+  getTitle (pId: number | undefined): Category | undefined {
     const category = CATEGORIES.find (category => category.id === pId);
     return category;
   }
 
-  get (pTitle: string): any {
+  // Aquí tenía puesto any
+  get (pTitle: string): Category | undefined {
     const category = CATEGORIES.find (category => category.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === pTitle);
     return category;
   }
