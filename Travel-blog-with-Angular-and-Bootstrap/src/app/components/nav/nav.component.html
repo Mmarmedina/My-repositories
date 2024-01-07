@@ -8,27 +8,16 @@
         <li class="nav-item px-1">
           <a class="nav-link menu-active" aria-current="page" href="http://localhost:4200/home">Home</a>
         </li>
-        <li class="nav-item px-1">
-          <a class="nav-link menu-inactive" href="http://localhost:4200/categorias/ciudad">Ciudad</a>
-        </li>
-        <li class="nav-item px-1">
-          <a class="nav-link menu-inactive" href="http://localhost:4200/categorias/montana">Montaña</a>
-        </li>
-        <li class="nav-item px-1">
-          <a class="nav-link menu-inactive" href="http://localhost:4200/categorias/playa">Playa</a>
-        </li>
-        <li class="nav-item px-1">
-          <a class="nav-link menu-inactive" href="http://localhost:4200/categorias/festivales">Festivales</a>
-        </li>
-        <li class="nav-item px-1">
-          <a class="nav-link menu-inactive" href="http://localhost:4200/categorias/rural">Rural</a>
+
+        <li *ngFor="let category of arrCategories" class="nav-item px-1">
+          <a class="nav-link menu-inactive" [routerLink]="['/categorias', removeEnyeUrl(category.title)]">{{category.title}}</a>
         </li>
       </ul>
     </div>
   </div>
 
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
+    <li class="nav-item">x
       <a href="#"><i class="bi bi-facebook px-2"></i></a>
     </li>
     <li class="nav-item">

@@ -1,5 +1,5 @@
 <div class="card mx-3">
-  <a href="" class="" target="_blank" [routerLink]="['/posts', post.id]"><img class="card-img-top" [src]="post.img" alt="Thumbnail-post"></a>
+  <a [routerLink]="['/posts', post.id]"><img class="card-img-top" [src]="post.img" alt="Thumbnail-post"></a>
   <div class="card-body pb-0">
     <a class="card-title text" [routerLink]="['/posts', post.id]">{{post.title}}</a>
     <p>{{post.excerpt}}</p>

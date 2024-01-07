@@ -22,21 +22,8 @@ export class CategoriesService {
     }else{
       return undefined
     } 
-
-    // if (category) {
-    //   return category;
-    // }else{
-    //   return null
-    // }
-    
-    // if (category) {
-    //   return category;
-    // }else{
-    //   return {}
-    // } 
   }
 
-  // Category | undefined
   get (pTitle: string): Category | undefined {
     const category = CATEGORIES.find (category => category.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === pTitle);
     if (category) {

@@ -18,13 +18,11 @@ export class FilterComponent {
     this.arrCategories = [];
     this.filter = new EventEmitter();
   }
-
-  // Llamaada al servicio para cargar todas las categorías.
+  
   ngOnInit(): void {
     this.arrCategories = this.categoriesService.getAll();
   }
 
-  // Cuando se selecciona categoría en el filtro, se envía al padre el valor (output)
   saveIdCategorySelected($event: any) {
     const IdCategoryTypeNumber = parseInt($event.target.value);
     this.filter.emit(IdCategoryTypeNumber); 
