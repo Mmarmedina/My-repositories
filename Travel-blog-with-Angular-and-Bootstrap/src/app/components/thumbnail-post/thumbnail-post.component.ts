@@ -30,12 +30,9 @@ export class ThumbnailPostComponent {
       id: 0,
       title: "",
     }
-
   }
 
   ngOnInit(): void {
     this.category = this.categoriesService.getTitle(this.post.id_category);
   }
-
-
 }

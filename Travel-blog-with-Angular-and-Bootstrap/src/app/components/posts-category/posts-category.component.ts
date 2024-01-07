@@ -37,7 +37,7 @@ export class PostsCategoryComponent {
       }else {
         this.postsCategory = this.postsService.getPostByIdCategory(this.category.id);
       }
-    })  
+    }) 
   } 
 }
 

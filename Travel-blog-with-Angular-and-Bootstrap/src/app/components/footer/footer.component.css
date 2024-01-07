@@ -3,15 +3,16 @@
     color: var(--secondary-color-white);
 }
 
-div p:nth-child(1){
+.color-title {
     color: var(--secondary-color-yellow);
 }
 
-div p:nth-child(1):hover {
+.color-title:hover  {
     color: var(--secondary-color-white);
     cursor: pointer;   
 }
 
-a:hover {
+.nav-color p:hover {
     color: var(--secondary-color-yellow);
+    cursor: pointer;
 }

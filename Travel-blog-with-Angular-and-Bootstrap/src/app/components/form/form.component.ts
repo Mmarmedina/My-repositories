@@ -46,8 +46,13 @@ export class FormComponent {
   }  
   
   onSubmit (): void {
-    this.upDateArray = this.postService.newP(this.form.value);
-    console.log (this.upDateArray);
-  }
-  
+    const id_category = parseInt(this.form.get('id_category')?.value)
+    this.form.get('id_category')?.setValue(id_category);    
+    
+    this.upDateArray = this.postService.newP(this.form.value); 
+    // MMM - Dejo este console.log para ver en consola el array con el nuevo post añadido.
+    console.log (this.upDateArray);  
+
+    alert('Se ha añadido el post correctamente');
+  }  
 }

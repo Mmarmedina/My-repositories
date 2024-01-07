@@ -20,11 +20,9 @@ export class NavComponent {
     this.arrCategories = this.categoriesService.getAll();
   }
 
-  removeEnyeUrl (cat: string): string {
-    
-    return cat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-');
-  
-  } 
+  removeEnyeUrl (cat: string): string {    
+    return cat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-')
+  }
 
 }
 
