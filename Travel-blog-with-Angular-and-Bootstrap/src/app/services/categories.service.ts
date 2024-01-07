@@ -10,21 +10,40 @@ import { Category } from '../interfaces/category.interface';
 export class CategoriesService {
   constructor() { } 
 
-  // Aquí tenía puesto any
   getAll (): Category [] {
     return CATEGORIES;
   }
 
-  // Aquí tenía puesto any
   getTitle (pId: number | undefined): Category | undefined {
     const category = CATEGORIES.find (category => category.id === pId);
-    return category;
+       
+    if (category) {
+      return category;
+    }else{
+      return undefined
+    } 
+
+    // if (category) {
+    //   return category;
+    // }else{
+    //   return null
+    // }
+    
+    // if (category) {
+    //   return category;
+    // }else{
+    //   return {}
+    // } 
   }
 
-  // Aquí tenía puesto any
+  // Category | undefined
   get (pTitle: string): Category | undefined {
     const category = CATEGORIES.find (category => category.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === pTitle);
-    return category;
+    if (category) {
+      return category;
+    }else{
+      return undefined
+    } 
   }
 }
 

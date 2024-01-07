@@ -13,7 +13,7 @@ import { CategoriesService } from '../../services/categories.service';
 export class ViewPostComponent {
 
   myPost: Post | undefined;
-  category: Category;
+  category: Category | undefined;
 
   constructor (
     private activatedRoute: ActivatedRoute,

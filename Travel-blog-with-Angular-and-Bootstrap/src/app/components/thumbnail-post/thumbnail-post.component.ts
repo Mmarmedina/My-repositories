@@ -11,7 +11,7 @@ import { Category } from '../../interfaces/category.interface';
 export class ThumbnailPostComponent {
 
   @Input () post: Post;
-  category: Category;
+  category: Category | undefined;
 
   constructor(private categoriesService: CategoriesService) {
 

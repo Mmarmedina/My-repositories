@@ -26,7 +26,7 @@ export class PostsService {
     return post;
   }
   
-  // Aquí en lugar tenía puesto any
+  // Aquí en lugar de esto tenía puesto any
   newP (pNew: Post): Post [] {    
     POSTS.push(pNew);    
     return POSTS;

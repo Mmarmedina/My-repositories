@@ -13,7 +13,7 @@ import { Post } from '../../interfaces/post.interface';
 
 export class PostsCategoryComponent {
   
-  category: Category;
+  category: Category | undefined;
   postsCategory: Post [];
   
   constructor (

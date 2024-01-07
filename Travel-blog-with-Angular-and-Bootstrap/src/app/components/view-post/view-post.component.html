@@ -8,7 +8,7 @@
 <main class="container">
     <h1 class="my-3 mx-5 fw-bold">{{myPost?.title}}</h1>
     <div class="d-flex justify-start ms-4">
-        <p href="#" class="btn btn-outline-primary btn-sm mx-4" [routerLink]="['/categorias', category.title.toLowerCase()]">{{category.title}}</p>
+        <p href="#" class="btn btn-outline-primary btn-sm mx-4" [routerLink]="['/categorias', category?.title?.toLowerCase()]">{{category?.title}}</p>
     </div>
     <p class="my-1 mx-5 fw-light"><span class="fw-bold">Autor: </span>{{myPost?.author}}</p>
     <p class="my-3 mx-5"><span class="fw-bold">Publicado: </span> {{myPost?.date}}</p>

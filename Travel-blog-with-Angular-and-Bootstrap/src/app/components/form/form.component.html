@@ -62,6 +62,7 @@
         <div class="field mb-3">
             <label class="fw-bold d-block mb-2">Elige una categoría</label>
             <select class="mb-2 p-2" id="id-category" name="id-category" title="category-filter" formControlName="id_category">
+                <option>Todas</option>
                 <option name="category.title" [value]="category.id" *ngFor="let category of arrCategories">{{category.title}}</option>
             </select>
             <p class="error"

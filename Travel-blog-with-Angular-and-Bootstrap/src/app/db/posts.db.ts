@@ -112,7 +112,7 @@ export const POSTS: Post [] =  [
       id_category: 5
     },
     {
-      id: 13,
+      id: 12,
       title: 'Caminando por Nueva York',
       text: 'Explora la ciudad que nunca duerme, desde Times Square hasta Central Park. Nueva York ofrece una experiencia única en cada rincón.',
       excerpt: 'Explora la ciudad que nunca duerme, desde Times Square hasta Central Park.',
@@ -122,7 +122,7 @@ export const POSTS: Post [] =  [
       id_category: 1
     },
     {
-      id: 14,
+      id: 13,
       title: 'Explorando Barcelona',
       text: 'Descubre la vibrante ciudad de Barcelona, llena de arquitectura modernista, playas soleadas y una escena culinaria emocionante.',
       excerpt: 'Descubre la vibrante ciudad de Barcelona.',
