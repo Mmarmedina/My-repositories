@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --color-background-site: hsl(0, 0%, 20%);
+    --main-color-blue: hsl(216, 74%, 20%);
+    --secondary-color-yellow: hsl(44, 98%, 55%);
+    --secondary-color-white: hsl(0, 0%, 100%);
+    --secondary-color-grey: hwb(0 88% 11% / 0.56); 
+}
+
+
+body {
+    font-family: 'Roboto Slab', serif !important;
+}
+
+p {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    /* MMM 
+    font-style: italic; */
+}
+
+
+
+
+
+
+
