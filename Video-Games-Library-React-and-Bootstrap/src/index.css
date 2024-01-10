@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --color-background-site: hsl(0, 0%, 20%);
+    --color-background-site: hsla(0, 0%, 0%, 0.852);
     --main-color-purple: hsl(263, 56%, 30%);
     --main-color-blue: hsl(216, 74%, 20%);
     --secondary-color-yellow: hsl(44, 98%, 55%);
