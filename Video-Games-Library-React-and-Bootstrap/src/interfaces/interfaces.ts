@@ -1,8 +1,7 @@
 interface VideoGame {
     id: number
     title: string
-    author: '' | 'GamerGuru' | 'JoystickJunkie' | 'El Rubius' | 'GameGazer' | 'PlaytimePro'
-    releaseDate: string
+    releaseDate: Date
     pegi: number
     genre: string
     publisher: string

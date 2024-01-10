@@ -4,7 +4,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 1, 
         title: "Quantum Odyssey",
-        author: "GamerGuru",
         releaseDate: "01-01-2021", 
         pegi: 12, 
         genre: "Acción", 
@@ -15,7 +14,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 2, 
         title: "Celestial Nexus",
-        author: "JoystickJunkie",
         releaseDate: "15-02-2022", 
         pegi: 18, 
         genre: "Aventura", 
@@ -26,7 +24,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 3, 
         title: "Ember Enigma", 
-        author: "El Rubius",
         releaseDate: "21-03-2023", 
         pegi: 16, 
         genre: "Estrategia", 
@@ -36,8 +33,7 @@ export const VIDEOGAMES: VideoGame [] = [
     },
     { 
         id: 4, 
-        title: "Galactic Paragon", 
-        author: "GameGazer",
+        title: "Galactic Paragon",
         releaseDate: "10-04-2023", 
         pegi: 12, 
         genre: "Deportes", 
@@ -48,7 +44,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 5, 
         title: "Shadow Serenade", 
-        author: "PlaytimePro",
         releaseDate: "05-06-2023", 
         pegi: 18, 
         genre: "Shooter", 
@@ -58,8 +53,7 @@ export const VIDEOGAMES: VideoGame [] = [
     },
     { 
         id: 6, 
-        title: "Nebula Nomad", 
-        author: "GamerGuru",
+        title: "Nebula Nomad",
         releaseDate: "15-07-2023", 
         pegi: 12, 
         genre: "Aventura", 
@@ -70,7 +64,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 7, 
         title: "Mystic Mirage",
-        author: "GamerGuru",
         releaseDate: "05-06-2023", 
         pegi: 16, 
         genre: "Estrategia", 
@@ -81,7 +74,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 8, 
         title: "Cybernetic Symphony",
-        author: "GameGazer",
         releaseDate: "01-07-2023", 
         pegi: 18, 
         genre: "Shooter", 
@@ -92,7 +84,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 9, 
         title: "Stellar Havoc",
-        author: "PlaytimePro", 
         releaseDate: "20-06-2023", 
         pegi: 16, 
         genre: "Acción", 
@@ -103,7 +94,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 10, 
         title: "Etheric Eclipse",
-        author: "JoystickJunkie",
         releaseDate: "18-09-2023", 
         pegi: 12, 
         genre: "Deportes", 
@@ -114,7 +104,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 11, 
         title: "Chrono Catalyst",
-        author: "El Rubius", 
         releaseDate: "15-09-2023", 
         pegi: 18, 
         genre: "Shooter", 
@@ -125,7 +114,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 12, 
         title: "Techno Templars",
-        author: "El Rubius", 
         releaseDate: "01-01-2024", 
         pegi: 12, 
         genre: "Aventura", 
@@ -136,7 +124,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 13, 
         title: "Solar Synchrony",
-        author: "JoystickJunkie", 
         releaseDate: "15-04-23", 
         pegi: 16, 
         genre: "Estrategia", 
@@ -147,7 +134,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 14, 
         title: "Rift Rhapsody",
-        author: "El Rubius", 
         releaseDate: "16-08-2023", 
         pegi: 18, genre: "Shooter", 
         publisher: "Editorial N", 
@@ -157,7 +143,6 @@ export const VIDEOGAMES: VideoGame [] = [
     { 
         id: 15, 
         title: "Zenith Zenith",
-        author: "JoystickJunkie", 
         releaseDate: "31-12-2023", 
         pegi: 12, 
         genre: "Deportes", 

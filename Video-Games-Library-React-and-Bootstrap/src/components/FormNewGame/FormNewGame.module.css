@@ -1,0 +1,16 @@
+.container {
+    width: 80%;
+    margin: 0 auto;tgb     
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border: 2px solid var(--secondary-color-yellow);
+    
+}
+
+.title {
+    color: var(--main-color-purple);
+    text-align: center;
+    font-weight: 300;    
+}
+

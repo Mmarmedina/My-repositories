@@ -4,6 +4,7 @@
 
 :root {
     --color-background-site: hsl(0, 0%, 20%);
+    --main-color-purple: hsl(263, 56%, 30%);
     --main-color-blue: hsl(216, 74%, 20%);
     --secondary-color-yellow: hsl(44, 98%, 55%);
     --secondary-color-white: hsl(0, 0%, 100%);
