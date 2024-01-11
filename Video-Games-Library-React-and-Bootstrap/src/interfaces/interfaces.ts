@@ -1,6 +1,7 @@
 interface VideoGame {
     id: number
     title: string
+    excerpt: string
     releaseDate: string
     pegi: number
     genre: string
@@ -10,11 +11,11 @@ interface VideoGame {
 }
 
 interface VideoGameListProps {
-    VIDEOGAMES: VideoGame[];
+    allVideoGames: VideoGame[]
 }
 
 interface VideoGameItemProps {
-    videogame: VideoGame;
+    videogame: VideoGame
 }
 
 export type {VideoGame, VideoGameListProps, VideoGameItemProps}

@@ -1,29 +1,27 @@
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { VideoGameItemProps } from '../../interfaces/interfaces';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
-function VideoGameItem () {
+function VideoGameItem ({ videogame }: VideoGameItemProps ) {
 
     return (
-        <article className="container">
-            <Row xs={1} md={2} className="g-4">
-                {Array.from({ length: 15 }).map((_, idx) => (
-                    <Col key={idx}>
-                    <Card>
-                        <Card.Img variant="top" src="https://images.unsplash.com/photo-1697219877546-5d8efced181d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <Card.Body>
-                        <Card.Title>Card title</Card.Title>
+        <Link className="text-decoration-none" to={`/videogames/${videogame.id}`}>
+            <article className="col-12 col-lg-6 container">
+                <Card style={{ width: '100%'}}>
+                    <Card.Img variant="top" src={videogame.img}/>
+                    <Card.Body>
+                        <Card.Title>{videogame.title}</Card.Title>
                         <Card.Text>
-                            This is a longer card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit
-                            longer.
+                        {videogame.excerpt}
                         </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    </Col>
-                ))}
-            </Row>
-        </article>        
+                        <Button variant="primary" style={{ backgroundColor: 'var(--main-color-purple)' }}>+ Info</Button>
+                    </Card.Body>
+                </Card>
+            </article> 
+        </Link>       
+
+        
     );
     
 }
