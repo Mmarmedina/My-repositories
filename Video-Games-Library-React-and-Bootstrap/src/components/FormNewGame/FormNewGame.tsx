@@ -2,42 +2,44 @@ import { useState } from "react";
 
 // import { nanoid } from "nanoid";
 
-
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 import styles from './FormNewGame.module.css'
+import { VideoGame } from "../../interfaces/interfaces";
 
 
 function FormNewGame () {
 
-    const [inputValues, setInputValues] = useState ({        
+    function AddNewGame () {
+        console.log ('hola');
+    }
+
+    const [inputValues, setInputValues] = useState<VideoGame> ({        
+        id: 0,
         title: '',
         releaseDate: '',
         pegi: '',
         genre: '',
         publisher: '',
-        price: '',
+        price: 0,
         img: ''
     });
 
-
-    const [validated, setValidated] = useState(false); 
-    
-    const [isInvalid, setIsInvalid] = useState(false)
-    
+    const [validated, setValidated] = useState<boolean>(false);
 
     function handleOnSubmit (event: any) {   
 
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
-            event.stopPropagation();
-            setIsInvalid(!isInvalid)
+            event.stopPropagation();        
         }
+
         setValidated(true);
+        
     }
 
     function handleInputChange (event: any) {
@@ -59,7 +61,7 @@ function FormNewGame () {
                 <h1 className={styles.title}>Añade un nuevo videojuego a tu biblioteca</h1>
             </header>            
             <main>
-                <Form noValidate validated={validated} onSubmit={handleOnSubmit}>         
+                <Form noValidate validated={validated} onSubmit={handleOnSubmit}>        
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="title">
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Título del vídeojuego</Form.Label>
@@ -73,7 +75,9 @@ function FormNewGame () {
                                 onChange={(e) => handleInputChange(e)}
                             />                            
                         </Form.Group>
-                        { isInvalid && <span>El campo es obligatorio</span> }
+                        {/* MMM */}
+                        {/* { error && <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span>  }
+                        { !error && <span></span> } */}
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="releaseDate">
@@ -87,6 +91,8 @@ function FormNewGame () {
                                 onChange={(e) => handleInputChange(e)}                                 
                             />
                         </Form.Group>
+                        {/* MMM */}
+                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                         <Form.Group as={Col} controlId="price" className="w-25"> 
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Precio (€)</Form.Label>
                             <Form.Control
@@ -102,6 +108,8 @@ function FormNewGame () {
                                 onChange={(e) => handleInputChange(e)}                             
                             />
                         </Form.Group>
+                        {/* MMM */}
+                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                     </Row>
                     <Row className="mb-3 w-50">
                         <Form.Group as={Col} controlId="pegi">
@@ -121,6 +129,8 @@ function FormNewGame () {
                                 <option value="18+">18+</option>
                             </Form.Select>
                         </Form.Group>
+                        {/* MMM */}
+                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                     </Row>
 
                     <Row className="mb-3">                                
@@ -141,7 +151,8 @@ function FormNewGame () {
                                 <option value="Otros">Otros</option>
                             </Form.Select>
                         </Form.Group>
-
+                        {/* MMM */}
+                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                         <Form.Group as={Col} controlId="publisher" required>
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Autor</Form.Label>
                             <Form.Select defaultValue="Selecciona..."
@@ -157,7 +168,9 @@ function FormNewGame () {
                                 <option value="GameGazer">GameGazer</option>
                                 <option value="PlaytimePro">PlaytimePro</option>
                             </Form.Select>
-                        </Form.Group>                 
+                        </Form.Group>
+                        {/* MMM */}
+                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span>                 */}
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="img">
@@ -172,6 +185,8 @@ function FormNewGame () {
                                 onChange={(e) => handleInputChange(e)}
                             />
                         </Form.Group>
+                        {/* MMM */}
+                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                     </Row>              
                     <Button variant="primary" type="submit">
                         Submit

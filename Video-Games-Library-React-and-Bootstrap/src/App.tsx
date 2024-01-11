@@ -7,22 +7,22 @@ import Footer from "./components/Footer/Footer"
 import FormNewGame from "./components/FormNewGame/FormNewGame"
 
 
+import { VIDEOGAMES } from './db/Videogames.db';
 
-function App() {
-  
- 
-  
+function App() {  
 
   return (
     
     <div>
       <Header />
+      <main>      
         <Routes>
-          <Route path="/videogames" element={<VideoGamesList />} />
+          <Route path="/videogames" element={<VideoGamesList VIDEOGAMES={VIDEOGAMES}/>} />
           <Route path="/videogame/:id" element={<SingleVideoGame />} />
           <Route path="new" element={<FormNewGame />} />
           <Route path="*" element={<Navigate to="/videogames"/>}/>                 
-        </Routes>      
+        </Routes>
+        </main>      
       <Footer />
     </div>   
     

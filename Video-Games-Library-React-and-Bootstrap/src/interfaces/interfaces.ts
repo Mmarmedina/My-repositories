@@ -1,7 +1,7 @@
 interface VideoGame {
     id: number
     title: string
-    releaseDate: Date
+    releaseDate: string
     pegi: number
     genre: string
     publisher: string
@@ -9,6 +9,14 @@ interface VideoGame {
     img: string
 }
 
-export type {VideoGame}
+interface VideoGameListProps {
+    VIDEOGAMES: VideoGame[];
+}
+
+interface VideoGameItemProps {
+    videogame: VideoGame;
+}
+
+export type {VideoGame, VideoGameListProps, VideoGameItemProps}
 
 
