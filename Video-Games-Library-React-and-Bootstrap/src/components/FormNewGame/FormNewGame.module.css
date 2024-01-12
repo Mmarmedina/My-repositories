@@ -11,8 +11,7 @@ span {
 
 .container {
     width: 80%;
-    margin: 0 auto;
-    margin-top: 3rem;
+    margin: 3rem 3rem;
     padding: 2rem;
     border-radius: 2rem;
     box-shadow: var(--main-color-purple) 0px 50px 100px -20px, var(--main-color-purple) 0px 30px 60px -30px;

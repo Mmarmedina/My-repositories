@@ -1,24 +1,20 @@
 import { useState } from "react";
+import { NewVideoGame } from "../../interfaces/interfaces";
+import { NewVideoGameProps } from "../../interfaces/interfaces";
 
-// import { nanoid } from "nanoid";
+import { nanoid } from "nanoid";
 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-
 import styles from './FormNewGame.module.css'
-import { VideoGame } from "../../interfaces/interfaces";
 
 
-function FormNewGame () {
+function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGamesArray } :any) {
 
-    function AddNewGame () {
-        console.log ('hola');
-    }
-
-    const [inputValues, setInputValues] = useState<VideoGame> ({        
-        id: 0,
+    const [inputValues, setInputValues] = useState<NewVideoGame> ({        
+        id: '',
         title: '',
         releaseDate: '',
         pegi: '',
@@ -30,8 +26,7 @@ function FormNewGame () {
 
     const [validated, setValidated] = useState<boolean>(false);
 
-    function handleOnSubmit (event: any) {   
-
+    function handleAddNewGame (event: any) {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -39,6 +34,20 @@ function FormNewGame () {
         }
 
         setValidated(true);
+
+        const newVideoGame: NewVideoGame = {
+            id: nanoid(),
+            title: inputValues.title,
+            releaseDate: inputValues.releaseDate,
+            pegi: inputValues.pegi,
+            genre: inputValues.genre,
+            publisher: inputValues.publisher,
+            price: inputValues.price,
+            img: inputValues.img
+        }
+
+        setUpDateVideoGamesArray(newVideoGame)
+        console.log (allVideoGames)        
         
     }
 
@@ -50,7 +59,7 @@ function FormNewGame () {
 
         console.log (inputValues)       
 
-        console.log ('Está esta guardando el form') 
+        console.log ('Está esta guardando el form')
 
     }
 
@@ -61,7 +70,7 @@ function FormNewGame () {
                 <h1 className={styles.title}>Añade un nuevo videojuego a tu biblioteca</h1>
             </header>            
             <main>
-                <Form noValidate validated={validated} onSubmit={handleOnSubmit}>        
+                <Form noValidate validated={validated} onSubmit={handleAddNewGame}>        
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="title">
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Título del vídeojuego</Form.Label>
@@ -188,7 +197,7 @@ function FormNewGame () {
                         {/* MMM */}
                         {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                     </Row>              
-                    <Button variant="primary" type="submit">
+                    <Button variant="dark" type="submit">
                         Submit
                     </Button>
                 </Form>
