@@ -1,12 +1,11 @@
+import styles from './Header.module.css'
+
 function Header () {
-
-    return (
-        <header className="bg-warning p-3 my-5">
-            <h1 className="text-center text-dark">Mis videojuegos</h1>
-        </header>
-    )      
-
-
+  return (
+    <header className={styles.headerHome}>     
+      <img className={styles.img} src="https://images.unsplash.com/photo-1623934199716-dc28818a6ec7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beach" />
+    </header>
+  )
 }
 
 export default Header

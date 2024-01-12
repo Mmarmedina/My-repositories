@@ -1,0 +1,6 @@
+.footerStyles {
+    background: var(--main-color-purple);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    font-size: 0.8rem;
+}

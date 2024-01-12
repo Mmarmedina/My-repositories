@@ -1,5 +1,5 @@
 interface VideoGame {
-    id: number
+    id: string
     title: string
     excerpt: string
     releaseDate: string
@@ -18,6 +18,10 @@ interface VideoGameItemProps {
     videogame: VideoGame
 }
 
-export type {VideoGame, VideoGameListProps, VideoGameItemProps}
+interface SingleVideoGameProps {
+    allVideoGames: VideoGame[]
+}
+
+export type {VideoGame, VideoGameListProps, VideoGameItemProps, SingleVideoGameProps}
 
 

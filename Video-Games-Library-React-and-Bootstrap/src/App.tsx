@@ -11,27 +11,44 @@ import { VideoGame } from './interfaces/interfaces';
 
 
 function App() {
-
+  
   const allVideoGames: VideoGame[] = VideoGames
-  console.log (allVideoGames)
- 
+
   return (
     
-    <body>        
-        <Header />
-        
+    <body>       
         <main className="d-flex flex-column align-items-center">      
           <Routes>
-            <Route path="/videogames" element={<VideoGamesList allVideoGames={allVideoGames}/>} />       
-            <Route path="/videogame/:id" element={<SingleVideoGame />} />
-            <Route path="new" element={<FormNewGame />} />
-            <Route path="*" element={<Navigate to="/videogames"/>}/>                 
-          </Routes>
-        </main>      
-        <Footer />
-    </body>
+            <Route path="/videogames" element={
+              <>
+                <Header />
+                <VideoGamesList allVideoGames={allVideoGames} />                
+              </>
+            }/>
 
-  )
-}
+            <Route path="/videogame/:id" element={<SingleVideoGame allVideoGames={allVideoGames}/>} />
+
+            <Route path="/new" element={<FormNewGame />} />
+            <Route path="*" element={<Navigate to="/videogames"/>}/>                 
+           </Routes>
+         </main>      
+         <Footer />
+       </body>            
+              
+  )       
+            
+            
+            
+} 
+          
+            
+             
+          
+          
+   
+            
+
+
+
 
 export default App

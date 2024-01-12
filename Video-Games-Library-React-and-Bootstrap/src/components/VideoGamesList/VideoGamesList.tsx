@@ -4,9 +4,6 @@ import VideoGameItem from "../VideoGameItem/VideoGameItem"
 
 function VideoGamesList ({ allVideoGames }: VideoGameListProps) {
 
-    console.log ('hola')
-    console.log (allVideoGames)
-
     return (
         <section className="row g-5">
             {
