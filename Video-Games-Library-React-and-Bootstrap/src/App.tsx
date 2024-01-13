@@ -8,22 +8,21 @@ import Footer from "./components/Footer/Footer"
 import FormNewGame from "./components/FormNewGame/FormNewGame"
 
 import { VideoGames } from './db/Videogames.db';
-import { NewVideoGame, VideoGame } from './interfaces/interfaces';
+import { VideoGame } from './interfaces/interfaces';
 import MainMenu from './components/Nav/Main.Menu';
 
 
 function App() {
   
   const [allVideoGames, setAllVideoGames] = useState<VideoGame[]>(VideoGames);
-  
-  const [upDateVideoGamesArray, setUpDateVideoGamesArray] = useState<VideoGame[]>();
 
-  function addNewVideoGame (newVideoGame: NewVideoGame) {
-    setUpDateVideoGamesArray([...allVideoGames, newVideoGame])
+  function addNewVideoGame (newVideoGame: VideoGame) {
+    setAllVideoGames([...allVideoGames, newVideoGame]);
+    alert(`¡Enhorabuena, el videojuego se ha añadido a tu biblioteca!\n${JSON.stringify(newVideoGame)}`)        
+    console.log (allVideoGames)
   }
-  
-  return (
-    
+
+  return (    
     <body>
         <MainMenu />    
         <main className="d-flex flex-column align-items-center">      
@@ -37,17 +36,13 @@ function App() {
 
             <Route path="/videogame/:id" element={<SingleVideoGame allVideoGames={allVideoGames}/>} />
 
-            <Route path="/new" element={<FormNewGame setnewVideoGametoArray={setnewVideoGametoArray} />} />
+            <Route path="/new" element={<FormNewGame addNewVideoGame={addNewVideoGame} />} />
             <Route path="*" element={<Navigate to="/videogames"/>}/>                 
            </Routes>
          </main>      
          <Footer />
-       </body>            
-              
-  )       
-            
-            
-            
+       </body>         
+  )                 
 } 
           
             

@@ -1,4 +1,28 @@
-import { VideoGames } from "../db/Videogames.db"
+
+// MMM añadir excerpt
+// interface VideoGame {
+//     id: string
+//     title: string
+//     excerpt: string
+//     releaseDate: string
+//     pegi: string
+//     genre: string
+//     publisher: string
+//     price: number
+//     img: string
+// }
+
+interface NewVideoGame {
+    id: string
+    title: string
+    excerpt: string
+    releaseDate: string
+    pegi: '' | '3+' | '7+' | '12+' | '16+' | '18+'
+    genre: '' | 'Acción' | 'Aventura' | 'Estrategia' | 'Shooter' | 'Otros'
+    publisher: '' | 'GamerGuru' | 'El Rubius' | 'GameGazer' | 'PlaytimePro'
+    price: number
+    img: string    
+}
 
 interface VideoGame {
     id: string
@@ -10,17 +34,6 @@ interface VideoGame {
     publisher: string
     price: number
     img: string
-}
-
-interface NewVideoGame {
-    id: string
-    title: string
-    releaseDate: string
-    pegi: '' | '3+' | '7+' | '12+' | '16+' | '18+'
-    genre: '' | 'Acción' | 'Aventura' | 'Estrategia' | 'Shooter' | 'Otros'
-    publisher: '' | 'GamerGuru' | 'El Rubius' | 'GameGazer' | 'PlaytimePro'
-    price: number
-    img: string    
 }
 
 interface VideoGameListProps {
@@ -36,8 +49,7 @@ interface SingleVideoGameProps {
 }
 
 interface NewVideoGameProps {
-    allVideoGames: VideoGame[]
-    setnewVideoGametoArray: any
+    addNewVideoGame: (videogame: VideoGame) =>void
 }
 
 

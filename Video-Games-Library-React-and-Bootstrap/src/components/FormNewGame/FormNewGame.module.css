@@ -1,22 +1,11 @@
 
-span {
-    padding: 0.2rem 0;
-    font-size: 0.7rem;
-    font-style: italic;    
-}
-
-.spanIcon {
-    font-size: 1rem;
-}
-
 .container {
     width: 80%;
     margin: 3rem 3rem;
     padding: 2rem;
     border-radius: 2rem;
     box-shadow: var(--main-color-purple) 0px 50px 100px -20px, var(--main-color-purple) 0px 30px 60px -30px;
-    border: 2px solid var(--main-color-purple);
-    
+    border: 2px solid var(--main-color-purple);    
 }
 
 .title {
@@ -27,11 +16,19 @@ span {
 
 .formLabel {
     color: var(--color-background-site);
-    font-size: 0.8rem !important;
+    /* font-size: 2rem; */
     font-weight: 700;
 }
 
+.selectAlert {
+    padding: 0.2rem 0;
+    font-size: 0.7rem;
+    font-style: italic;    
+}
 
+.spanIcon {
+    font-size: 1rem;
+}
 
 
 

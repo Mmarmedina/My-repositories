@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { NewVideoGame } from "../../interfaces/interfaces";
-import { NewVideoGameProps } from "../../interfaces/interfaces";
+import { NewVideoGame, VideoGame } from "../../interfaces/interfaces";
 
 import { nanoid } from "nanoid";
 
@@ -11,11 +10,13 @@ import Row from 'react-bootstrap/Row';
 import styles from './FormNewGame.module.css'
 
 
-function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGamesArray } :any) {
+
+function FormNewGame ({ addNewVideoGame } : any) {
 
     const [inputValues, setInputValues] = useState<NewVideoGame> ({        
         id: '',
         title: '',
+        excerpt: '',
         releaseDate: '',
         pegi: '',
         genre: '',
@@ -24,47 +25,52 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
         img: ''
     });
 
-    const [validated, setValidated] = useState<boolean>(false);
+    const [validated, setValidated] = useState<boolean>(false)
 
-    function handleAddNewGame (event: any) {
+    const urlPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/i
+
+    function handleInputChange (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>){        
+        setInputValues( { ...inputValues, [event.target.name]: event.target.value})              
+    }
+
+    function handleAddNewGame (event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault() 
+       
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();        
         }
-
+        
         setValidated(true);
 
-        const newVideoGame: NewVideoGame = {
+        const newVideoGame: VideoGame = {
             id: nanoid(),
             title: inputValues.title,
+            excerpt: inputValues.excerpt,
             releaseDate: inputValues.releaseDate,
             pegi: inputValues.pegi,
             genre: inputValues.genre,
             publisher: inputValues.publisher,
             price: inputValues.price,
             img: inputValues.img
-        }
+        }        
 
-        setUpDateVideoGamesArray(newVideoGame)
-        console.log (allVideoGames)        
-        
+        if (
+            inputValues.title.trim() ===  '' || 
+            inputValues.releaseDate === '' ||
+            inputValues.pegi === '' ||
+            inputValues.genre === '' ||
+            inputValues.publisher === '' ||
+            inputValues.price === null ||
+            inputValues.img.trim() === ''||
+            !urlPattern.test(inputValues.img.trim())
+        ) return
+
+        addNewVideoGame(newVideoGame)
     }
-
-    function handleInputChange (event: any) {
-
-        event.preventDefault()
-
-        setInputValues( { ...inputValues, [event.target.name]: event.target.value})
-
-        console.log (inputValues)       
-
-        console.log ('Está esta guardando el form')
-
-    }
-
+   
     return (
-
         <div className={styles.container}>
              <header>              
                 <h1 className={styles.title}>Añade un nuevo videojuego a tu biblioteca</h1>
@@ -83,10 +89,21 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 value={inputValues.title}
                                 onChange={(e) => handleInputChange(e)}
                             />                            
-                        </Form.Group>
-                        {/* MMM */}
-                        {/* { error && <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span>  }
-                        { !error && <span></span> } */}
+                        </Form.Group>                          
+                    </Row>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} controlId="excerpt">
+                            <Form.Label column="sm" lg={5} className={styles.formLabel}>Resumen del videojuego</Form.Label>
+                            <Form.Control                                
+                                required
+                                as="textarea"                                
+                                size="sm" 
+                                placeholder="¿De qué trata el videojuego?"
+                                name="excerpt"
+                                value={inputValues.excerpt}
+                                onChange={(e) => handleInputChange(e)}
+                            />                            
+                        </Form.Group>                          
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="releaseDate">
@@ -100,8 +117,6 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 onChange={(e) => handleInputChange(e)}                                 
                             />
                         </Form.Group>
-                        {/* MMM */}
-                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                         <Form.Group as={Col} controlId="price" className="w-25"> 
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Precio (€)</Form.Label>
                             <Form.Control
@@ -117,13 +132,12 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 onChange={(e) => handleInputChange(e)}                             
                             />
                         </Form.Group>
-                        {/* MMM */}
-                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                     </Row>
                     <Row className="mb-3 w-50">
                         <Form.Group as={Col} controlId="pegi">
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Edad recomendada</Form.Label>
-                            <Form.Select defaultValue="Selecciona..."
+                            <Form.Select 
+                                defaultValue="Selecciona..."
                                 required
                                 size="sm"
                                 name="pegi"
@@ -138,21 +152,21 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 <option value="18+">18+</option>
                             </Form.Select>
                         </Form.Group>
-                        {/* MMM */}
-                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
+                        { validated && <span className={styles.selectAlert}>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> }                     
                     </Row>
-
                     <Row className="mb-3">                                
                         <Form.Group as={Col} controlId="genre">
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Género</Form.Label>
-                            <Form.Select defaultValue="Selecciona..."
+                            <Form.Select 
+                                className={styles.selectStyle}
+                                defaultValue="Selecciona..."
                                 required
                                 size="sm"
                                 name="genre"
                                 value={inputValues.genre}
                                 onChange={(e) => handleInputChange(e)}                
                             >    
-                                 <option>Selecciona el género</option>                 
+                                <option>Selecciona el género</option>                 
                                 <option value="Acción">Acción</option>
                                 <option value="Aventura">Aventura</option>
                                 <option value="Estrategia">Estrategia</option>
@@ -160,11 +174,11 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 <option value="Otros">Otros</option>
                             </Form.Select>
                         </Form.Group>
-                        {/* MMM */}
-                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
+                        { validated && <span className={styles.selectAlert}>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> }
                         <Form.Group as={Col} controlId="publisher" required>
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Autor</Form.Label>
-                            <Form.Select defaultValue="Selecciona..."
+                            <Form.Select 
+                                defaultValue="Selecciona..."
                                 required
                                 size="sm"
                                 name="publisher"
@@ -178,8 +192,7 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 <option value="PlaytimePro">PlaytimePro</option>
                             </Form.Select>
                         </Form.Group>
-                        {/* MMM */}
-                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span>                 */}
+                        { validated && <span className={styles.selectAlert}>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> }
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="img">
@@ -194,8 +207,6 @@ function FormNewGame ({ allVideoGames }: NewVideoGameProps, { setUpDateVideoGame
                                 onChange={(e) => handleInputChange(e)}
                             />
                         </Form.Group>
-                        {/* MMM */}
-                        {/* <span>No olvides rellenar este campo <span className={styles.spanIcon}>🎮</span></span> */}
                     </Row>              
                     <Button variant="dark" type="submit">
                         Submit
