@@ -1,8 +1,7 @@
-import { useParams } from 'react-router-dom'
-import Card from 'react-bootstrap/Card';
+import { useParams } from 'react-router-dom';
 import { SingleVideoGameProps } from '../../interfaces/interfaces';
-import styles from './SingleVideoGame.module.css'
-
+import Card from 'react-bootstrap/Card';
+import styles from './SingleVideoGame.module.css';
 
 function SingleVideoGame ({ allVideoGames }: SingleVideoGameProps) {
 
@@ -46,7 +45,7 @@ function SingleVideoGame ({ allVideoGames }: SingleVideoGameProps) {
                 </Card.Body>                            
             </Card>
         </main>        
-    );
+    )
 }
 
 export default SingleVideoGame

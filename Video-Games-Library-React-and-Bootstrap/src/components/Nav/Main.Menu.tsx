@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function MainMenu() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary px-0">      
+    <Navbar expand="lg" className="bg-body-tertiary">      
       <Container>
         <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -17,10 +17,10 @@ function MainMenu() {
         </div>        
       </Container>
       <Container className='w-25'>
-        <Navbar.Brand href="/videogames">GameVerse</Navbar.Brand>
+        <Navbar.Brand className="d-none d-lg-block" href="/videogames">GameVerse</Navbar.Brand>
       </Container>
     </Navbar>
-  );
+  )
 }
 
 export default MainMenu

@@ -3,13 +3,14 @@ import { Routes, Route, Navigate, useNavigate} from 'react-router-dom';
 
 import Header from "./components/Header/Header"
 import VideoGamesList from './components/VideoGamesList/VideoGamesList';
-import SingleVideoGame from "./components/SingleVideoGame/SingleVideoGame"
-import Footer from "./components/Footer/Footer"
-import FormNewGame from "./components/FormNewGame/FormNewGame"
+import SingleVideoGame from "./components/SingleVideoGame/SingleVideoGame";
+import Footer from "./components/Footer/Footer";
+import FormNewGame from "./components/FormNewGame/FormNewGame";
+import MainMenu from './components/Nav/Main.Menu';
 
 import { VideoGames } from './db/Videogames.db';
 import { VideoGame } from './interfaces/interfaces';
-import MainMenu from './components/Nav/Main.Menu';
+
 
 
 function App() {

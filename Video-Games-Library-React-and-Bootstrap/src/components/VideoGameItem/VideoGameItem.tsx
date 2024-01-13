@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import { VideoGameItemProps } from '../../interfaces/interfaces';
 import { Link } from 'react-router-dom';
+import { VideoGameItemProps } from '../../interfaces/interfaces';
+import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 
 
 function VideoGameItem ({ allVideoGames, videogame }: VideoGameItemProps ) {
     
-    useEffect(() => {
-
-        console.log('El componente VideoGamesList se ha actualizado');    
+    useEffect(() => {  
         
     }, [allVideoGames])
 

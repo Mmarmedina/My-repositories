@@ -1,13 +1,11 @@
-import { useEffect } from "react"
-import VideoGameItem from "../VideoGameItem/VideoGameItem"
-import { VideoGameListProps } from "../../interfaces/interfaces"
+import { useEffect } from "react";
+import VideoGameItem from "../VideoGameItem/VideoGameItem";
+import { VideoGameListProps } from "../../interfaces/interfaces";
 
 
 function VideoGamesList ({ allVideoGames }: VideoGameListProps) {
 
-    useEffect(() => {
-
-        console.log('El componente VideoGamesList se ha actualizado');    
+    useEffect(() => {  
         
     }, [allVideoGames])
       

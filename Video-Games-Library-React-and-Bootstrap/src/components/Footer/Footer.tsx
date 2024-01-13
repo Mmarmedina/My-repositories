@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import styles from './Footer.module.css'
+import styles from './Footer.module.css';
 
 function Footer () {
     return (
@@ -35,8 +35,7 @@ function Footer () {
                     </Col>
                 </Row>
             </Container>           
-        </footer>
-        
+        </footer>        
     )
 }
 

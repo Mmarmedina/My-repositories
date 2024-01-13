@@ -20,14 +20,13 @@ function FormNewGame ({ addNewVideoGame} : FormNewGameProps) {
         publisher: '',
         price: 0,
         img: ''
-    });
+    })
 
     const [validated, setValidated] = useState<boolean>(false)
 
-    const urlPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/i
-    
+    const urlPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/i    
 
-    function handleInputChange (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>){        
+    function handleInputChange (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>){
         setInputValues( { ...inputValues, [event.target.name]: event.target.value})              
     }
 
@@ -221,7 +220,7 @@ function FormNewGame ({ addNewVideoGame} : FormNewGameProps) {
                         { validated && <span className={styles.selectAlert}>Asegúrate de añadir una imagen usando una URL válida <span className={styles.spanIcon}>🖱</span></span> }
                     </Row>              
                     <Button variant="dark" type="submit">
-                        Submit
+                        Añadir juego
                     </Button>
                 </Form>
             </main>
