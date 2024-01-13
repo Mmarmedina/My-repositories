@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { VideoGameItemProps } from '../../interfaces/interfaces';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
-function VideoGameItem ({ videogame }: VideoGameItemProps ) {
+function VideoGameItem ({ allVideoGames, videogame }: VideoGameItemProps ) {
+    
+    useEffect(() => {
+
+        console.log('El componente VideoGamesList se ha actualizado');    
+        
+    }, [allVideoGames])
+
     return (
         <Link className="text-decoration-none" to={`/videogame/${videogame.id}`}>
             <article className="col-12 col-lg-6 container fs-6">

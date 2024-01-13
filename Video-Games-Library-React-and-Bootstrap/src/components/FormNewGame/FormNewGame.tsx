@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { NewVideoGame, VideoGame } from "../../interfaces/interfaces";
-
+import { NewVideoGame, VideoGame, FormNewGameProps } from "../../interfaces/interfaces";
 import { nanoid } from "nanoid";
-
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -10,9 +8,8 @@ import Row from 'react-bootstrap/Row';
 import styles from './FormNewGame.module.css'
 
 
-
-function FormNewGame ({ addNewVideoGame } : any) {
-
+function FormNewGame ({ addNewVideoGame} : FormNewGameProps) {
+  
     const [inputValues, setInputValues] = useState<NewVideoGame> ({        
         id: '',
         title: '',
@@ -28,6 +25,7 @@ function FormNewGame ({ addNewVideoGame } : any) {
     const [validated, setValidated] = useState<boolean>(false)
 
     const urlPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/i
+    
 
     function handleInputChange (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>){        
         setInputValues( { ...inputValues, [event.target.name]: event.target.value})              
@@ -35,7 +33,7 @@ function FormNewGame ({ addNewVideoGame } : any) {
 
     function handleAddNewGame (event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault() 
-       
+              
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -43,18 +41,6 @@ function FormNewGame ({ addNewVideoGame } : any) {
         }
         
         setValidated(true);
-
-        const newVideoGame: VideoGame = {
-            id: nanoid(),
-            title: inputValues.title,
-            excerpt: inputValues.excerpt,
-            releaseDate: inputValues.releaseDate,
-            pegi: inputValues.pegi,
-            genre: inputValues.genre,
-            publisher: inputValues.publisher,
-            price: inputValues.price,
-            img: inputValues.img
-        }        
 
         if (
             inputValues.title.trim() ===  '' || 
@@ -67,7 +53,31 @@ function FormNewGame ({ addNewVideoGame } : any) {
             !urlPattern.test(inputValues.img.trim())
         ) return
 
+        const newVideoGame: VideoGame = {
+            id: nanoid(),
+            title: inputValues.title,
+            excerpt: inputValues.excerpt,
+            releaseDate: inputValues.releaseDate,
+            pegi: inputValues.pegi,
+            genre: inputValues.genre,
+            publisher: inputValues.publisher,
+            price: inputValues.price,
+            img: inputValues.img
+        }  
+        
         addNewVideoGame(newVideoGame)
+
+        setInputValues({
+            id: '',
+            title: '',
+            excerpt: '',
+            releaseDate: '',
+            pegi: '',
+            genre: '',
+            publisher: '',
+            price: 0,
+            img: ''
+        })        
     }
    
     return (
@@ -105,7 +115,7 @@ function FormNewGame ({ addNewVideoGame } : any) {
                             />                            
                         </Form.Group>                          
                     </Row>
-                    <Row className="mb-3">
+                    <Row className="mb-3"> 
                         <Form.Group as={Col} controlId="releaseDate">
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Fecha lanzamiento</Form.Label>
                             <Form.Control
@@ -117,7 +127,7 @@ function FormNewGame ({ addNewVideoGame } : any) {
                                 onChange={(e) => handleInputChange(e)}                                 
                             />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="price" className="w-25"> 
+                        <Form.Group as={Col} controlId="price" className="w-25">
                             <Form.Label column="sm" lg={5} className={styles.formLabel}>Precio (€)</Form.Label>
                             <Form.Control
                                 required
@@ -131,7 +141,8 @@ function FormNewGame ({ addNewVideoGame } : any) {
                                 value={inputValues.price}
                                 onChange={(e) => handleInputChange(e)}                             
                             />
-                        </Form.Group>
+                            { validated && <span className={styles.selectAlert}>Precio máx. 200 euros. <span className={styles.spanIcon}>💰</span></span> }
+                        </Form.Group>                       
                     </Row>
                     <Row className="mb-3 w-50">
                         <Form.Group as={Col} controlId="pegi">
@@ -207,6 +218,7 @@ function FormNewGame ({ addNewVideoGame } : any) {
                                 onChange={(e) => handleInputChange(e)}
                             />
                         </Form.Group>
+                        { validated && <span className={styles.selectAlert}>Asegúrate de añadir una imagen usando una URL válida <span className={styles.spanIcon}>🖱</span></span> }
                     </Row>              
                     <Button variant="dark" type="submit">
                         Submit
