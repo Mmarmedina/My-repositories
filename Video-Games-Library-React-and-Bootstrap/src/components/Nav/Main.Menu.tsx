@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function MainMenu() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary p-3">      
+    <Navbar expand="lg" className="bg-body-tertiary px-0">      
       <Container>
         <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

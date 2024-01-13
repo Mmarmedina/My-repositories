@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate} from 'react-router-dom';
 
 import Header from "./components/Header/Header"
 import VideoGamesList from './components/VideoGamesList/VideoGamesList';
@@ -17,13 +17,14 @@ function App() {
   const getVideoGamesFromLocalStorage = (): VideoGame[] => {
     const data = window.localStorage.getItem('allVideoGames')
     return data ? JSON.parse(data) : VideoGames
-  }  
+  }
   
   const updateVideoGamesToLocalStorage = (videoGames: VideoGame[]) => {
     window.localStorage.setItem('allVideoGames', JSON.stringify(videoGames))
   }
-  
+
   const [allVideoGames, setAllVideoGames] = useState<VideoGame[]>(getVideoGamesFromLocalStorage())
+  const navigate = useNavigate()
 
   useEffect(() => {
     const data = getVideoGamesFromLocalStorage()
@@ -31,44 +32,15 @@ function App() {
   }, [])
 
   useEffect(() => {
-    // Actualizar el localStorage cada vez que allVideoGames cambie.
     updateVideoGamesToLocalStorage(allVideoGames)
   }, [allVideoGames])
 
 
-   
-  // MMM Método 1
-    // useEffect (() => {
-    //   const data = window.localStorage.getItem('allVideoGames')
-    //   if (data !== null) setAllVideoGames (JSON.parse(data))
-    // }, []) 
-
-    // useEffect (() => {
-    //   const data = JSON.stringify(allVideoGames)
-    //   window.localStorage.setItem('allVideoGames', data)
-    // }, [allVideoGames])
-  
-
-  // MMM Método 2
-    // useEffect(() => {
-    //   const data = window.localStorage.getItem('allVideoGames')
-    //   if (data !== null) {
-    //     setAllVideoGames(JSON.parse(data));
-    //   }
-    // }, [])
-    
-    // useEffect(() => {
-    //   const data = JSON.stringify(allVideoGames);
-    //   window.localStorage.setItem('allVideoGames', data);
-    // }, [allVideoGames]) 
-
 
   function addNewVideoGame (newVideoGame: VideoGame) {
-    // MMM
-    // setAllVideoGames([...allVideoGames, newVideoGame]);
     setAllVideoGames((prevAllVideoGames) => [...prevAllVideoGames, newVideoGame])
-    alert(`¡Enhorabuena, el videojuego se ha añadido a tu biblioteca!\n${JSON.stringify(newVideoGame)}`) 
-    console.log (allVideoGames)   
+    alert(`🎮 ¡Enhorabuena, el videojuego se ha añadido correctamente! 🎮\n\n${JSON.stringify(newVideoGame)}\n\n\¡Ya puedes verlo en tu biblioteca! 😇`)
+    navigate('/videogames')    
   }
 
   return (    
